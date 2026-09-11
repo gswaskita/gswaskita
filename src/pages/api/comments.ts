@@ -88,7 +88,7 @@ function saveSettings(settings: any) {
 // GitHub API Integration for Vercel / Production environment (Option 1)
 async function saveToGitHub(commentRecord: any): Promise<boolean> {
   const token = process.env.GITHUB_TOKEN || process.env.KEYSTATIC_GITHUB_TOKEN || process.env.GH_TOKEN;
-  const repo = process.env.PUBLIC_KEYSTATIC_GITHUB_REPO;
+  const repo = process.env.PUBLIC_KEYSTATIC_GITHUB_REPO || process.env.KEYSTATIC_GITHUB_REPO || process.env.GITHUB_REPO;
   if (!token || !repo) return false;
 
   const filePath = `src/content/comments/${commentRecord.id}.json`;
@@ -136,7 +136,7 @@ async function saveToGitHub(commentRecord: any): Promise<boolean> {
 
 async function deleteFromGitHub(commentId: string): Promise<boolean> {
   const token = process.env.GITHUB_TOKEN || process.env.KEYSTATIC_GITHUB_TOKEN || process.env.GH_TOKEN;
-  const repo = process.env.PUBLIC_KEYSTATIC_GITHUB_REPO;
+  const repo = process.env.PUBLIC_KEYSTATIC_GITHUB_REPO || process.env.KEYSTATIC_GITHUB_REPO || process.env.GITHUB_REPO;
   if (!token || !repo) return false;
 
   const filePath = `src/content/comments/${commentId}.json`;
