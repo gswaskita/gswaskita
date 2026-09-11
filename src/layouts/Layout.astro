@@ -21,6 +21,8 @@ const {
 const jsonLd = generateJsonLdSchemaString(data);
 const brandPhoto = data.profile.brandImage || data.profile.brandImageUrl;
 const faviconSrc = brandPhoto || '/favicon.ico';
+const siteUrl = 'https://sastrawaskita.com';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -31,9 +33,11 @@ const faviconSrc = brandPhoto || '/favicon.ico';
     <script is:inline src="/crypto-polyfill.js"></script>
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="profile" />
+    <meta property="og:url" content={canonicalURL} />
     {brandPhoto ? (
       <>
         <link rel="icon" href={faviconSrc} />
