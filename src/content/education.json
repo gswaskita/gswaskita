@@ -4,13 +4,6 @@
   "sectionDescription": "Formal academic degrees, specialization tracks, and doctoral admission timeline.",
   "timeline": [
     {
-      "degree": "Doctor of Philosophy (PhD) in Operations Management",
-      "status": "Application & Supervisory Review Stage",
-      "institution": "Target: Top-Tier UK Universities (Warwick, Manchester, Leeds, Bath)",
-      "focus": "Sustainable Value Chains, Dynamic Sensing Capabilities & SME Operations",
-      "period": "2025 – Present (Prospective Candidate)"
-    },
-    {
       "degree": "Magister Manajemen (M.M.) / Master of Management",
       "status": "Graduated with Honors",
       "institution": "Universitas Islam Kadiri (UNISKA)",
@@ -18,11 +11,11 @@
       "period": "2017 – 2019"
     },
     {
-      "degree": "Sarjana Ekonomi (S.E.) / Bachelor of Economics",
+      "degree": "Sarjana Ekonomi (S.E.) / Bachelor of Business Administration (B.BA.)",
       "status": "Graduated with Honors",
-      "institution": "Universitas Tulungagung",
-      "focus": "Business Administration & Quantitative Research Methods",
-      "period": "2010 – 2014"
+      "institution": "Universitas Presiden / President University",
+      "focus": "Hospitality and Tourism Business & Quantitative Research Methods",
+      "period": "2003 – 2007"
     }
   ]
 }
