@@ -15,22 +15,22 @@
     "Supply Chain Sustainability",
     "Case Studies"
   ],
-  "ctaText": "Beli di Sada Kurnia Pustaka",
-  "ctaUrl": "https://www.gramedia.com",
+  "ctaText": "Beli di Google Books",
+  "ctaUrl": "https://www.google.co.id/books/edition/Bisnis_dan_Kewirausahaan_Era_Digital",
   "pages": 427,
   "edition": "1",
   "marketplaceLinks": [
     {
-      "name": "Gramedia Official",
-      "url": "https://www.gramedia.com"
+      "name": "Google Books",
+      "url": "https://www.google.co.id/books/edition/Bisnis_dan_Kewirausahaan_Era_Digital"
     },
     {
-      "name": "Tokopedia Official Store",
+      "name": "Tokopedia",
       "url": "https://www.tokopedia.com"
     },
     {
-      "name": "Shopee Mall",
-      "url": "https://shopee.co.id"
+      "name": "Bukalapak",
+      "url": "https://bukalapak.co.id"
     }
   ]
 }
