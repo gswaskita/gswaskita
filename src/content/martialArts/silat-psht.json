@@ -1,16 +1,16 @@
 {
   "id": "silat-psht",
-  "name": "Silat PSHT",
+  "name": "Pencak Silat",
   "type": "Persaudaraan Setia Hati Terate",
   "subtitle": "Traditional Martial Arts & Ethical Community Leadership",
-  "keyPillars": [
-    "Brotherhood (Persaudaraan)",
-    "Humility & Moral Integrity",
-    "Community Leadership"
-  ],
   "description": "Rooted in Indonesian cultural philosophy, PSHT emphasizes internal harmony, profound respect for mentors and peers, and using strength exclusively for community upliftment and justice.",
   "academicParallel": "Fostering ethical research stewardship, deep empathy in qualitative field engagements with vulnerable SME communities, and collaborative collegiate brotherhood across academic faculties.",
   "badge": "Traditional Martial Arts",
   "iconName": "HeartHandshake",
-  "order": 2
+  "order": 2,
+  "keyPillars": [
+    "Brotherhood (Persaudaraan)",
+    "Humility & Moral Integrity",
+    "Community Leadership"
+  ]
 }
