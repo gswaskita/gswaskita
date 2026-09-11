@@ -8,6 +8,10 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  ogType?: 'website' | 'profile' | 'article' | string;
+  publishedTime?: string;
+  authorName?: string;
   currentPage?: PageId;
   data?: PortfolioDataState;
 }
@@ -15,6 +19,10 @@ interface Props {
 const { 
   title = (Astro.props.data?.profile?.siteTitle) || "Gautama Sastra Waskita - Academic Portfolio & PhD Research", 
   description = (Astro.props.data?.profile?.bioQuote) || "Personal academic portfolio and research showcase of Gautama Sastra Waskita for UK PhD application in Operations Management, Sustainable Digital Business, and SME Digitalization.",
+  image,
+  ogType = "profile",
+  publishedTime,
+  authorName,
   currentPage = "home",
   data = INITIAL_PORTFOLIO_DATA
 } = Astro.props;
@@ -24,6 +32,13 @@ const brandPhoto = data.profile.brandImage || data.profile.brandImageUrl;
 const faviconSrc = brandPhoto || '/favicon.ico';
 const siteUrl = 'https://sastrawaskita.com';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
+
+// Resolve absolute URL for Open Graph / Twitter image preview
+const rawImage = image || data?.profile?.avatarImage || data?.profile?.avatarUrl || data?.profile?.brandImage || '/static/images/profile/avatarImage.jpeg';
+let resolvedOgImage = rawImage;
+if (resolvedOgImage && !resolvedOgImage.startsWith('http://') && !resolvedOgImage.startsWith('https://')) {
+  resolvedOgImage = new URL(resolvedOgImage, siteUrl).toString();
+}
 ---
 
 <!doctype html>
@@ -35,10 +50,34 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / WhatsApp / Facebook / LinkedIn -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="profile" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={data?.profile?.siteTitle || data?.profile?.name || "Gautama Sastra Waskita"} />
+    {resolvedOgImage && (
+      <>
+        <meta property="og:image" content={resolvedOgImage} />
+        <meta property="og:image:secure_url" content={resolvedOgImage} />
+        <meta property="og:image:alt" content={title} />
+      </>
+    )}
+    {ogType === 'article' && publishedTime && (
+      <meta property="article:published_time" content={publishedTime} />
+    )}
+    {ogType === 'article' && authorName && (
+      <meta property="article:author" content={authorName} />
+    )}
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {resolvedOgImage && (
+      <meta name="twitter:image" content={resolvedOgImage} />
+    )}
     {brandPhoto ? (
       <>
         <link rel="icon" href={faviconSrc} />

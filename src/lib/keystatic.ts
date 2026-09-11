@@ -422,7 +422,7 @@ export async function getPortfolioData(): Promise<PortfolioDataState> {
             readTime: calculatedReadTime,
             category: entry.category,
             excerpt: entry.excerpt,
-            coverImage: entry.coverImage,
+            coverImage: entry.coverImage || INITIAL_PORTFOLIO_DATA.blogPosts.find(p => p.slug === slug)?.coverImage || '',
             imageCaption: entry.imageCaption,
             authors: Array.isArray(entry.authors)
               ? entry.authors.map((a: any) => ({
