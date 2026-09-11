@@ -523,7 +523,7 @@ export async function getPortfolioData(): Promise<PortfolioDataState> {
     const rawRightHeading = (phdStatusEntry as any)?.rightSupervisoryHeading || 'Doctoral Research Proposal Focus';
     const rawRightDescription = (phdStatusEntry as any)?.rightSupervisoryDescription || 'Seeking supervisory alignment in Sustainable Value Chains, Service Operations, and Dynamic Capability Modeling for doctoral admission at UK business schools.';
     const rawBannerProposalHeading = (phdStatusEntry as any)?.bannerProposalHeading || (pageContentEntry as any)?.aboutProposalHeading || 'Doctoral Research Proposal Focus';
-    const rawBannerProposalTitle = (phdStatusEntry as any)?.bannerProposalTitle || (pageContentEntry as any)?.aboutProposalTitle || INITIAL_PORTFOLIO_DATA.phdStatus.phdTargetProposal;
+    const rawBannerProposalTitle = (phdStatusEntry as any)?.bannerProposalTitle || (pageContentEntry as any)?.aboutProposalTitle || INITIAL_PORTFOLIO_DATA.phdStatus?.phdTargetProposal || INITIAL_PORTFOLIO_DATA.profile.phdTargetProposal || '';
     const rawBannerProposalButtonText = (phdStatusEntry as any)?.bannerProposalButtonText || (pageContentEntry as any)?.aboutProposalCta || 'View Full Proposal & CV →';
     const rawBannerProposalButtonUrl = (phdStatusEntry as any)?.bannerProposalButtonUrl || (pageContentEntry as any)?.aboutProposalUrl || '/about';
 

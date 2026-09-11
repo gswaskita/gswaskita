@@ -186,7 +186,7 @@ export const LandscapeBlogVisual: React.FC<LandscapeBlogVisualProps> = ({
               alt={post.title}
               onError={() => setImageError(true)}
               className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-              loading={isHero || variant === 'hero' ? 'eager' : 'lazy'}
+              loading={isHero ? 'eager' : 'lazy'}
             />
             {/* Subtle Gradient Shade for Text Readability and Contrast */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
