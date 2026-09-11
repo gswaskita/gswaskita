@@ -2,6 +2,7 @@ import type { PortfolioDataState } from '../types';
 
 export const INITIAL_PORTFOLIO_DATA: PortfolioDataState = {
   profile: {
+    siteTitle: "Gautama Sastra Waskita - Academic Portfolio & PhD Research",
     name: "Gautama Sastra Waskita",
     lastName: "Waskita",
     prefix: "",
@@ -874,6 +875,17 @@ const { post } = Astro.props;
     aboutPillarsHeading: "Foundational Research & Scholarly Pillars",
     aboutPillarsSubtitle: "Four interconnected dimensions defining my analytical framework and research portfolio.",
     aboutPhotoBadge: "UK PhD Applicant",
+    aboutAddressSectionBadge: "Verifiable Institutional Affiliation & Correspondence",
+    aboutAddressSectionTitle: "Academic Workplace & Domicile Addresses",
+    aboutAddressSectionSubtitle: "Official university workplace affiliation and residential correspondence address for formal supervisory, research collaborations, and doctoral inquiries.",
+    aboutCampusCardBadge: "Afiliasi Kampus Tempat Kerja",
+    aboutCampusAddressLabel: "Alamat Kampus:",
+    aboutCampusMapsButtonText: "Petunjuk Lokasi (Google Maps)",
+    aboutDomicileCardBadge: "Alamat Domisili & Korespondensi",
+    aboutDomicileCardTitle: "Kediaman Resmi • Korespondensi",
+    aboutDomicileAddressLabel: "Alamat Domisili Lengkap:",
+    aboutDomicileMapsButtonText: "Lokasi Domisili (Google Maps)",
+    aboutProposalCardBadge: "Prospective PhD Dissertation Title • UK Admission",
 
     researchBadge: "Full Research Repository • Journal Articles & Proceedings",
     researchTitle: "Research Articles & Publications",

@@ -33,6 +33,7 @@ export interface BlogComment {
 }
 
 export interface AuthorProfile {
+  siteTitle?: string;
   name: string;
   lastName: string;
   prefix: string;
@@ -300,6 +301,17 @@ export interface PageContentData {
   aboutPillarsHeading: string;
   aboutPillarsSubtitle: string;
   aboutPhotoBadge: string;
+  aboutAddressSectionBadge?: string;
+  aboutAddressSectionTitle?: string;
+  aboutAddressSectionSubtitle?: string;
+  aboutCampusCardBadge?: string;
+  aboutCampusAddressLabel?: string;
+  aboutCampusMapsButtonText?: string;
+  aboutDomicileCardBadge?: string;
+  aboutDomicileCardTitle?: string;
+  aboutDomicileAddressLabel?: string;
+  aboutDomicileMapsButtonText?: string;
+  aboutProposalCardBadge?: string;
 
   // Research Section & Page
   researchBadge: string;

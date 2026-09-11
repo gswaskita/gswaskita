@@ -12,8 +12,8 @@ interface Props {
 }
 
 const { 
-  title = "Gautama Sastra Waskita - Academic Portfolio & PhD Research", 
-  description = "Personal academic portfolio and research showcase of Gautama Sastra Waskita for UK PhD application in Operations Management, Sustainable Digital Business, and SME Digitalization.",
+  title = (Astro.props.data?.profile?.siteTitle) || "Gautama Sastra Waskita - Academic Portfolio & PhD Research", 
+  description = (Astro.props.data?.profile?.bioQuote) || "Personal academic portfolio and research showcase of Gautama Sastra Waskita for UK PhD application in Operations Management, Sustainable Digital Business, and SME Digitalization.",
   currentPage = "home",
   data = INITIAL_PORTFOLIO_DATA
 } = Astro.props;

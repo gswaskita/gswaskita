@@ -310,6 +310,7 @@ export async function getPortfolioData(): Promise<PortfolioDataState> {
       ? ({
           ...INITIAL_PORTFOLIO_DATA.profile,
           ...profileEntry,
+          siteTitle: (profileEntry as any).siteTitle || INITIAL_PORTFOLIO_DATA.profile.siteTitle || 'Gautama Sastra Waskita - Academic Portfolio & PhD Research',
           avatarUrl: (profileEntry as any).avatarImage || (profileEntry as any).avatarUrl || INITIAL_PORTFOLIO_DATA.profile.avatarUrl,
           brandImage: (profileEntry as any).brandImage || null,
           brandImageUrl: (profileEntry as any).brandImageUrl || '',

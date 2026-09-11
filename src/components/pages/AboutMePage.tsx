@@ -20,7 +20,7 @@ import {
   Phone,
   ExternalLink
 } from 'lucide-react';
-import type { AboutPillar, ThemeMode, PageId, AuthorProfile, EducationData, PageContentData } from '../../types';
+import type { AboutPillar, ThemeMode, PageId, AuthorProfile, EducationData, PageContentData, PhdStatusData } from '../../types';
 import { INITIAL_PORTFOLIO_DATA } from '../../data/portfolioData';
 import { useTheme } from '../../utils/useTheme';
 
@@ -29,6 +29,7 @@ interface AboutMePageProps {
   profile: AuthorProfile;
   education?: EducationData;
   pageContent?: PageContentData;
+  phdStatus?: PhdStatusData;
   theme?: ThemeMode;
   onNavigate: (page: PageId) => void;
   onOpenCV: () => void;
@@ -41,6 +42,7 @@ export const AboutMePage: React.FC<AboutMePageProps> = ({
   profile,
   education: propEducation,
   pageContent: propPageContent,
+  phdStatus: propPhdStatus,
   theme: propTheme,
   onNavigate,
   onOpenCV,
@@ -52,6 +54,7 @@ export const AboutMePage: React.FC<AboutMePageProps> = ({
 
   const education = propEducation || INITIAL_PORTFOLIO_DATA.education!;
   const pageContent = propPageContent || INITIAL_PORTFOLIO_DATA.pageContent!;
+  const phdStatus = propPhdStatus || INITIAL_PORTFOLIO_DATA.phdStatus!;
   const educationTimeline = education.timeline || [];
 
   return (
@@ -279,13 +282,13 @@ export const AboutMePage: React.FC<AboutMePageProps> = ({
               isDark ? 'bg-blue-950/60 border-blue-400/30 text-blue-300' : 'bg-blue-50 border-blue-200 text-blue-800'
             }`}>
               <MapPin className="w-3.5 h-3.5" />
-              <span>Verifiable Institutional Affiliation &amp; Correspondence</span>
+              <span>{pageContent.aboutAddressSectionBadge || 'Verifiable Institutional Affiliation & Correspondence'}</span>
             </div>
             <h2 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              Academic Workplace &amp; Domicile Addresses
+              {pageContent.aboutAddressSectionTitle || 'Academic Workplace & Domicile Addresses'}
             </h2>
             <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Official university workplace affiliation and residential correspondence address for formal supervisory, research collaborations, and doctoral inquiries.
+              {pageContent.aboutAddressSectionSubtitle || 'Official university workplace affiliation and residential correspondence address for formal supervisory, research collaborations, and doctoral inquiries.'}
             </p>
           </div>
 
@@ -305,7 +308,7 @@ export const AboutMePage: React.FC<AboutMePageProps> = ({
                         <span className={`text-[10px] font-mono font-bold uppercase tracking-wider block ${
                           isDark ? 'text-blue-300' : 'text-blue-700'
                         }`}>
-                          Afiliasi Kampus Tempat Kerja
+                          {pageContent.aboutCampusCardBadge || 'Afiliasi Kampus Tempat Kerja'}
                         </span>
                         <h3 className="text-base font-bold">{profile.institution}</h3>
                       </div>
@@ -320,7 +323,7 @@ export const AboutMePage: React.FC<AboutMePageProps> = ({
 
                   <div className="pt-2 border-t border-white/10 space-y-2 text-xs leading-relaxed">
                     <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block font-semibold">
-                      Alamat Kampus:
+                      {pageContent.aboutCampusAddressLabel || 'Alamat Kampus:'}
                     </span>
                     <p className={`whitespace-pre-line font-medium ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
                       {profile.campusAddress}
@@ -338,7 +341,7 @@ export const AboutMePage: React.FC<AboutMePageProps> = ({
                     }`}
                   >
                     <MapPin className="w-3.5 h-3.5 text-blue-500" />
-                    <span>Petunjuk Lokasi (Google Maps)</span>
+                    <span>{pageContent.aboutCampusMapsButtonText || 'Petunjuk Lokasi (Google Maps)'}</span>
                     <ExternalLink className="w-3 h-3 ml-0.5" />
                   </a>
                 </div>
@@ -360,16 +363,16 @@ export const AboutMePage: React.FC<AboutMePageProps> = ({
                         <span className={`text-[10px] font-mono font-bold uppercase tracking-wider block ${
                           isDark ? 'text-emerald-300' : 'text-emerald-700'
                         }`}>
-                          Alamat Domisili &amp; Korespondensi
+                          {pageContent.aboutDomicileCardBadge || 'Alamat Domisili & Korespondensi'}
                         </span>
-                        <h3 className="text-base font-bold">Kediaman Resmi &bull; Korespondensi</h3>
+                        <h3 className="text-base font-bold">{pageContent.aboutDomicileCardTitle || 'Kediaman Resmi • Korespondensi'}</h3>
                       </div>
                     </div>
                   </div>
 
                   <div className="pt-2 border-t border-white/10 space-y-2 text-xs leading-relaxed">
                     <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block font-semibold">
-                      Alamat Domisili Lengkap:
+                      {pageContent.aboutDomicileAddressLabel || 'Alamat Domisili Lengkap:'}
                     </span>
                     <p className={`whitespace-pre-line font-medium ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
                       {profile.domicileAddress}
@@ -407,7 +410,7 @@ export const AboutMePage: React.FC<AboutMePageProps> = ({
                     }`}
                   >
                     <MapPin className="w-3.5 h-3.5 text-emerald-500" />
-                    <span>Lokasi Domisili (Google Maps)</span>
+                    <span>{pageContent.aboutDomicileMapsButtonText || 'Lokasi Domisili (Google Maps)'}</span>
                     <ExternalLink className="w-3 h-3 ml-0.5" />
                   </a>
                 </div>
@@ -428,20 +431,20 @@ export const AboutMePage: React.FC<AboutMePageProps> = ({
           <span className={`text-xs font-bold uppercase tracking-widest ${
             isDark ? 'text-emerald-300' : 'text-emerald-700 font-mono'
           }`}>
-            Prospective PhD Dissertation Title &bull; UK Admission
+            {pageContent.aboutProposalCardBadge || 'Prospective PhD Dissertation Title • UK Admission'}
           </span>
         </div>
 
         <h3 className={`text-xl sm:text-2xl font-bold leading-snug ${
           isDark ? 'text-white' : 'text-blue-950'
         }`}>
-          &ldquo;{profile.phdTargetProposal}&rdquo;
+          &ldquo;{phdStatus?.phdTargetProposal || profile.phdTargetProposal}&rdquo;
         </h3>
 
         <p className={`text-sm leading-relaxed max-w-4xl ${
           isDark ? 'text-slate-200' : 'text-slate-700'
         }`}>
-          {profile.phdTargetDescription}
+          {phdStatus?.phdTargetDescription || profile.phdTargetDescription}
         </p>
 
         <div className="pt-2 flex flex-wrap items-center gap-3">

@@ -13,7 +13,7 @@ const data = await getPortfolioData();
 ---
 
 <Layout 
-  title={`${data.profile.name} - Academic Portfolio & PhD Research (Astro + Keystatic)`}
+  title={data.profile.siteTitle || `${data.profile.name} - Academic Portfolio & PhD Research`}
   description={data.profile.bioQuote}
   currentPage="home"
   data={data}

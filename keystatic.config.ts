@@ -380,6 +380,11 @@ export default config({
       path: 'src/content/profile',
       format: { data: 'json' },
       schema: {
+        siteTitle: fields.text({
+          label: 'Browser Tab Title / Meta SEO Title (Homepage & General)',
+          description: 'Judul tab browser untuk homepage dan meta SEO title (Default: Gautama Sastra Waskita - Academic Portfolio & PhD Research). Mengubah teks ini akan langsung mengubah judul tab browser.',
+          defaultValue: 'Gautama Sastra Waskita - Academic Portfolio & PhD Research',
+        }),
         name: fields.text({ label: 'Full Name' }),
         lastName: fields.text({ label: 'Last Name / Family Name' }),
         prefix: fields.text({ label: 'Academic Prefix' }),
@@ -589,6 +594,53 @@ export default config({
         aboutPillarsHeading: fields.text({ label: 'About Pillars Section Heading' }),
         aboutPillarsSubtitle: fields.text({ label: 'About Pillars Subtitle', multiline: true }),
         aboutPhotoBadge: fields.text({ label: 'About Photo Badge (e.g. UK PhD Applicant)' }),
+
+        // Halaman About: Afiliasi Institusi & Alamat Domisili
+        aboutAddressSectionBadge: fields.text({
+          label: 'Halaman About - Badge Section Alamat (e.g. Verifiable Institutional Affiliation & Correspondence)',
+          defaultValue: 'Verifiable Institutional Affiliation & Correspondence',
+        }),
+        aboutAddressSectionTitle: fields.text({
+          label: 'Halaman About - Judul Section Alamat (e.g. Academic Workplace & Domicile Addresses)',
+          defaultValue: 'Academic Workplace & Domicile Addresses',
+        }),
+        aboutAddressSectionSubtitle: fields.text({
+          label: 'Halaman About - Deskripsi Section Alamat',
+          multiline: true,
+          defaultValue: 'Official university workplace affiliation and residential correspondence address for formal supervisory, research collaborations, and doctoral inquiries.',
+        }),
+        aboutCampusCardBadge: fields.text({
+          label: 'Halaman About - Badge Kartu Kampus (e.g. Afiliasi Kampus Tempat Kerja)',
+          defaultValue: 'Afiliasi Kampus Tempat Kerja',
+        }),
+        aboutCampusAddressLabel: fields.text({
+          label: 'Halaman About - Label Teks Alamat Kampus (e.g. Alamat Kampus:)',
+          defaultValue: 'Alamat Kampus:',
+        }),
+        aboutCampusMapsButtonText: fields.text({
+          label: 'Halaman About - Teks Tombol Maps Kampus (e.g. Petunjuk Lokasi (Google Maps))',
+          defaultValue: 'Petunjuk Lokasi (Google Maps)',
+        }),
+        aboutDomicileCardBadge: fields.text({
+          label: 'Halaman About - Badge Kartu Domisili (e.g. Alamat Domisili & Korespondensi)',
+          defaultValue: 'Alamat Domisili & Korespondensi',
+        }),
+        aboutDomicileCardTitle: fields.text({
+          label: 'Halaman About - Judul Kartu Domisili (e.g. Kediaman Resmi • Korespondensi)',
+          defaultValue: 'Kediaman Resmi • Korespondensi',
+        }),
+        aboutDomicileAddressLabel: fields.text({
+          label: 'Halaman About - Label Teks Alamat Domisili (e.g. Alamat Domisili Lengkap:)',
+          defaultValue: 'Alamat Domisili Lengkap:',
+        }),
+        aboutDomicileMapsButtonText: fields.text({
+          label: 'Halaman About - Teks Tombol Maps Domisili (e.g. Lokasi Domisili (Google Maps))',
+          defaultValue: 'Lokasi Domisili (Google Maps)',
+        }),
+        aboutProposalCardBadge: fields.text({
+          label: 'Halaman About - Badge Kartu Proposal PhD (e.g. Prospective PhD Dissertation Title • UK Admission)',
+          defaultValue: 'Prospective PhD Dissertation Title • UK Admission',
+        }),
 
         // Research Section & Page
         researchBadge: fields.text({ label: 'Research Badge' }),
