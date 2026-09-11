@@ -215,13 +215,17 @@ function clickableLinkField({
   };
 }
 
-const isProd = typeof process !== 'undefined' 
-  ? process.env.NODE_ENV === 'production' 
-  : Boolean(import.meta.env?.PROD);
+const isProd = Boolean(
+  (typeof process !== 'undefined' && process.env.NODE_ENV === 'production') ||
+  import.meta.env?.PROD
+);
 
-const githubRepo = typeof process !== 'undefined'
-  ? (process.env.PUBLIC_KEYSTATIC_GITHUB_REPO || process.env.KEYSTATIC_GITHUB_REPO || process.env.GITHUB_REPO)
-  : (import.meta.env?.PUBLIC_KEYSTATIC_GITHUB_REPO || (import.meta.env as any)?.KEYSTATIC_GITHUB_REPO || (import.meta.env as any)?.GITHUB_REPO);
+const githubRepo = (
+  (typeof process !== 'undefined' && (process.env.KEYSTATIC_GITHUB_REPO || process.env.PUBLIC_KEYSTATIC_GITHUB_REPO || process.env.GITHUB_REPO)) ||
+  (import.meta.env?.KEYSTATIC_GITHUB_REPO as string | undefined) ||
+  (import.meta.env?.PUBLIC_KEYSTATIC_GITHUB_REPO as string | undefined) ||
+  'gswaskita/gswaskita'
+);
 
 const AdaScholarMark = ({ colorScheme }: { colorScheme?: 'light' | 'dark' }) => {
   const isDark = colorScheme === 'dark';
