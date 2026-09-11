@@ -739,21 +739,33 @@ export default config({
         }),
         yearlyCitations: fields.array(
           fields.object({
-            year: fields.integer({ label: 'Tahun (Year)' }),
+            year: fields.integer({ label: 'Tahun (Year)', validation: { min: 1990, max: 2100 } }),
             count: fields.integer({ label: 'Jumlah Sitasi (Citations Count)' }),
+            growthPercent: fields.integer({
+              label: 'YoY % (Opsional - Kosongkan jika ingin dihitung otomatis)',
+              description: 'Persentase pertumbuhan dibanding tahun sebelumnya (contoh: 150 atau -20). Jika dikosongkan, dihitung otomatis.',
+            }),
+            cumulative: fields.integer({
+              label: 'Kumulatif (Opsional - Kosongkan jika ingin dihitung otomatis)',
+              description: 'Total akumulasi sitasi sampai tahun ini. Jika dikosongkan, dihitung otomatis dari tahun-tahun sebelumnya.',
+            }),
+            milestone: fields.text({
+              label: 'Milestone Riset (Tampil di Kolom Tabel & Tooltip Grafik)',
+              description: 'Catatan pencapaian riset penting di tahun ini (contoh: First research citations, Scopus Q1, dll)',
+            }),
           }),
           {
-            label: 'Tren Sitasi Tahunan Google Scholar (Hero Citation Trajectory)',
-            itemLabel: props => `${props.fields.year.value || 'Tahun'}: ${props.fields.count.value || 0} sitasi`,
+            label: 'Tren Sitasi Tahunan Google Scholar (Hero Citation Trajectory Graphic & Table)',
+            itemLabel: props => `${props.fields.year.value || 'Tahun'}: ${props.fields.count.value || 0} sitasi ${props.fields.milestone.value ? `• ${props.fields.milestone.value}` : ''}`,
           }
         ),
         yearlyPublications: fields.array(
           fields.object({
-            year: fields.integer({ label: 'Tahun (Year)' }),
+            year: fields.integer({ label: 'Tahun (Year)', validation: { min: 1990, max: 2100 } }),
             count: fields.integer({ label: 'Jumlah Publikasi (Publications Count)' }),
           }),
           {
-            label: 'Tren Publikasi Garuda Per Tahun (Curved Line Chart)',
+            label: 'Tren Publikasi Garuda Per Tahun (Garuda Curved Line Chart)',
             itemLabel: props => `${props.fields.year.value || 'Tahun'}: ${props.fields.count.value || 0} publikasi`,
           }
         ),

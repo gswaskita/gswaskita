@@ -15,19 +15,31 @@
   "yearlyCitations": [
     {
       "year": 2023,
-      "count": 2
+      "count": 2,
+      "growthPercent": 0,
+      "cumulative": 2,
+      "milestone": "First research citations & publication launch"
     },
     {
       "year": 2024,
-      "count": 25
+      "count": 25,
+      "growthPercent": 1150,
+      "cumulative": 27,
+      "milestone": "Garuda & national journal indexed citations expansion"
     },
     {
       "year": 2025,
-      "count": 137
+      "count": 137,
+      "growthPercent": 448,
+      "cumulative": 164,
+      "milestone": "Peak citation momentum across Scopus & national journals"
     },
     {
       "year": 2026,
-      "count": 109
+      "count": 109,
+      "growthPercent": -20,
+      "cumulative": 273,
+      "milestone": "Ongoing annual citation trajectory"
     }
   ],
   "yearlyPublications": [

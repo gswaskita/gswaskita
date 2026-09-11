@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({
   const isDark = theme === 'dark';
 
   // Calculate highest citation for sparkline normalization
-  const maxYearCitation = Math.max(...scholarStats.yearlyCitations.map(y => y.count), 100);
+  const maxYearCitation = Math.max(...((scholarStats?.yearlyCitations || []).map(y => y.count)), 100);
 
   const academicLinks = getAcademicLinks(profile);
 

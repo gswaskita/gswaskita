@@ -28,38 +28,44 @@ export const HeroCitationTrajectory: React.FC<HeroCitationTrajectoryProps> = ({
   const isDark = theme === 'dark';
   const [viewMode, setViewMode] = useState<'chart' | 'table' | 'split'>('chart');
 
-  // Use yearlyPublications or yearlyCitations from scholarStats
-  const rawData = (scholarStats.yearlyPublications && scholarStats.yearlyPublications.length > 0)
-    ? scholarStats.yearlyPublications
-    : (scholarStats.yearlyCitations && scholarStats.yearlyCitations.length > 0)
-      ? scholarStats.yearlyCitations
+  // Priority: Use yearlyCitations from scholarStats for Citation Trajectory
+  const rawData = (scholarStats.yearlyCitations && scholarStats.yearlyCitations.length > 0)
+    ? scholarStats.yearlyCitations
+    : (scholarStats.yearlyPublications && scholarStats.yearlyPublications.length > 0)
+      ? scholarStats.yearlyPublications
       : [
-          { year: 2023, count: 1 },
-          { year: 2024, count: 4 },
-          { year: 2025, count: 10 },
-          { year: 2026, count: 6 }
+          { year: 2023, count: 2 },
+          { year: 2024, count: 25 },
+          { year: 2025, count: 137 },
+          { year: 2026, count: 109 }
         ];
 
-  // Enrich data with cumulative sum and YoY growth percent
+  // Sort ascending by year to ensure correct timeline and cumulative computation
+  const sortedRawData = [...rawData].sort((a: any, b: any) => Number(a.year) - Number(b.year));
+
+  // Enrich data with cumulative sum, YoY growth percent, and milestone
   let runningTotal = 0;
-  const yearlyData = rawData.map((d: any, idx: number, arr: any[]) => {
+  const yearlyData = sortedRawData.map((d: any, idx: number, arr: any[]) => {
     const currCount = Number(d.count) || 0;
     runningTotal += currCount;
     const prev = idx > 0 ? arr[idx - 1] : null;
     const prevCount = prev ? Number(prev.count) || 0 : 0;
-    const growth = prevCount > 0 ? Math.round(((currCount - prevCount) / prevCount) * 100) : 0;
+    const autoGrowth = prevCount > 0 ? Math.round(((currCount - prevCount) / prevCount) * 100) : 0;
+    const hasCustomGrowth = d.growthPercent !== undefined && d.growthPercent !== null && d.growthPercent !== '';
+    const hasCustomCumulative = d.cumulative !== undefined && d.cumulative !== null && d.cumulative !== '';
+
     return {
       year: Number(d.year),
       count: currCount,
-      cumulative: d.cumulative !== undefined ? Number(d.cumulative) : runningTotal,
-      growthPercent: d.growthPercent !== undefined ? Number(d.growthPercent) : growth,
-      milestone: d.milestone || (idx === arr.length - 1 ? 'Ongoing publication trajectory' : `Annual trajectory milestone`)
+      cumulative: hasCustomCumulative ? Number(d.cumulative) : runningTotal,
+      growthPercent: hasCustomGrowth ? Number(d.growthPercent) : autoGrowth,
+      milestone: d.milestone || (idx === arr.length - 1 ? 'Ongoing citation trajectory' : `Annual citation trajectory milestone`)
     };
   });
 
   const counts = yearlyData.map(d => d.count);
   const maxCitation = Math.max(...counts, 1);
-  const totalCitations = scholarStats.totalCitations || runningTotal || 348;
+  const totalCitations = scholarStats.totalCitations || runningTotal || 296;
   const peakItem = yearlyData.reduce((prev, curr) => (curr.count > prev.count ? curr : prev), yearlyData[0]);
 
   const [hoveredYear, setHoveredYear] = useState<number | null>(peakItem?.year || 2025);
@@ -160,7 +166,9 @@ export const HeroCitationTrajectory: React.FC<HeroCitationTrajectoryProps> = ({
           <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-slate-400 mb-2 sm:mb-3 flex-wrap gap-1">
             <span className="flex items-center gap-1 text-emerald-500 font-semibold">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              <span>YoY Growth +{peakItem?.growthPercent || 150}% Peak</span>
+              <span>
+                YoY Growth {peakItem?.growthPercent !== undefined && peakItem.growthPercent > 0 ? `+${peakItem.growthPercent}%` : `${peakItem?.growthPercent || 0}%`} Peak
+              </span>
             </span>
             <span>{firstYear} &rarr; {lastYear} ({peakItem?.year} Peak)</span>
           </div>
@@ -286,8 +294,10 @@ export const HeroCitationTrajectory: React.FC<HeroCitationTrajectoryProps> = ({
                         {row.count}
                       </td>
                       <td className="py-1.5 px-1.5 sm:px-2 text-right whitespace-nowrap">
-                        {row.growthPercent && row.growthPercent > 0 ? (
+                        {row.growthPercent !== undefined && row.growthPercent > 0 ? (
                           <span className="text-emerald-500 font-semibold">+{row.growthPercent}%</span>
+                        ) : row.growthPercent !== undefined && row.growthPercent < 0 ? (
+                          <span className="text-rose-400 font-semibold">{row.growthPercent}%</span>
                         ) : (
                           <span className="text-slate-400">0%</span>
                         )}
@@ -309,7 +319,9 @@ export const HeroCitationTrajectory: React.FC<HeroCitationTrajectoryProps> = ({
                 <tr>
                   <td className="py-2 px-2 sm:px-3 whitespace-nowrap">Total</td>
                   <td className="py-2 px-1.5 sm:px-2 text-right text-blue-500 font-bold whitespace-nowrap">{runningTotal}</td>
-                  <td className="py-2 px-1.5 sm:px-2 text-right text-emerald-500 whitespace-nowrap">+{peakItem?.growthPercent || 0}% peak</td>
+                  <td className="py-2 px-1.5 sm:px-2 text-right text-emerald-500 whitespace-nowrap">
+                    {peakItem?.growthPercent !== undefined && peakItem.growthPercent > 0 ? `+${peakItem.growthPercent}%` : `${peakItem?.growthPercent || 0}%`} peak
+                  </td>
                   <td className="py-2 px-1.5 sm:px-2 text-right whitespace-nowrap hidden sm:table-cell">{runningTotal}</td>
                   <td className="py-2 px-2 sm:px-3 text-[8px] sm:text-[9px] text-slate-400 font-normal truncate max-w-[110px] sm:max-w-[160px]">Annual Trajectory</td>
                 </tr>
