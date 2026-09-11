@@ -1,5 +1,11 @@
 <div align="center">
 
+<a href="https://klikada.com" target="_blank" rel="noopener noreferrer">
+  <img src="https://cloud.klikada.com/image/klikada.com-logo.png" alt="klikada.com - Software House" width="220" />
+</a>
+
+<br/><br/>
+
 # 🎓 ADAScholar `v1.0`
 ### *The Ultimate Researcher Profile Builder*
 
@@ -14,7 +20,7 @@
 
 <br/>
 
-> **Dikembangkan & Didesain Khusus oleh Software House [klikada.com](https://klikada.com)**  
+> **Didesain & Dikembangkan Khusus oleh Software House [klikada.com](https://klikada.com)**  
 > *Transformasikan reputasi akademis, rekam jejak riset, dan bibliometrik Anda ke dalam platform digital modern, elegan, dan berbobot tinggi.*
 
 </div>
@@ -76,6 +82,22 @@ Seringkali profil akademisi hanya mengandalkan Google Scholar statis, PDDIKTI, a
 
 ---
 
+## 👥 Kontributor & Tim Pengembang (Core Contributors)
+
+Website dan platform arsitektur **ADAScholar v1.0** ini dirancang, dibangun, dan disempurnakan oleh:
+
+- 🌟 **Kontributor Utama (*Lead Architect & Developer*)**:  
+  **[masden.klikada.com](https://masden.klikada.com)**  
+  *Pakar rekayasa perangkat lunak dan arsitek utama sistem personal branding akademis ADAScholar.*
+  
+- 🏢 **Software House & Platform Provider**:  
+  <a href="https://klikada.com" target="_blank" rel="noopener noreferrer">
+    <img src="https://cloud.klikada.com/image/klikada.com-logo.png" alt="klikada.com" width="140" style="vertical-align: middle; display: inline-block; margin-top: 6px;" />
+  </a>  
+  *Penyedia solusi rekayasa teknologi informasi, platform profil institusi/akademik, dan infrastruktur komputasi awan.*
+
+---
+
 ## 💻 Panduan Instalasi Lokal (Quickstart)
 
 ### Prasyarat
@@ -120,11 +142,20 @@ Untuk mengaktifkan sinkronisasi otomatis antara Vercel dan GitHub saat website l
 
 Ingin memiliki website portofolio peneliti sekelas **ADAScholar** dengan nama domain Anda sendiri (misal: `namalengkap.com`), desain eksklusif, serta pendampingan input data riset dan integrasi Google Scholar?
 
-Layanan pembuatan dan kustomisasi profesional disediakan oleh **klikada.com**:
+Layanan pembuatan dan kustomisasi profesional disediakan langsung oleh software house **klikada.com**:
 
-- 🌐 **Situs Resmi**: [https://klikada.com](https://klikada.com)
+<div align="center">
+  <br/>
+  <a href="https://klikada.com" target="_blank" rel="noopener noreferrer">
+    <img src="https://cloud.klikada.com/image/klikada.com-logo.png" alt="klikada.com" width="200" />
+  </a>
+  <br/><br/>
+</div>
+
+- 🌐 **Situs Resmi Perusahaan**: [https://klikada.com](https://klikada.com)
+- 👨‍💻 **Portfolio Pengembang**: [https://masden.klikada.com](https://masden.klikada.com)
 - 🏢 **Spesialisasi**: *Academic Profiling Systems, Custom Web Application, Software Engineering & Cloud Solutions*.
-- 📩 **Konsultasi & Pemesanan**: Hubungi tim representatif kami melalui portal [klikada.com](https://klikada.com) untuk penawaran dan jadwal implementasi.
+- 📩 **Konsultasi & Pemesanan**: Hubungi tim representatif kami melalui portal [klikada.com](https://klikada.com) untuk penawaran resmi dan konsultasi kebutuhan Anda.
 
 ---
 
@@ -135,6 +166,6 @@ Copyright (c) 2026 PT / Tim Pengembang klikada.com
 All Rights Reserved.
 ```
 
-- **Status Lisensi**: *Proprietary / All Rights Reserved*. Proyek ini tidak dilisensikan di bawah lisensi publik terbuka (non-open source general license).
-- **Hak Cipta**: Seluruh arsitektur kode, modul integrasi, hak cipta desain, dan penamaan dagang **ADAScholar: The Ultimate Researcher Profile Builder** dimiliki sepenuhnya oleh perusahaan *software house* **klikada.com**.
+- **Status Lisensi**: *Proprietary / All Rights Reserved*. Proyek ini tidak dilisensikan di bawah lisensi publik terbuka (*non-open source general license*).
+- **Hak Cipta**: Seluruh arsitektur kode, modul integrasi, hak cipta desain antarmuka, dan penamaan dagang **ADAScholar: The Ultimate Researcher Profile Builder** dimiliki sepenuhnya oleh perusahaan *software house* **klikada.com**.
 - **Ketentuan**: Dilarang mendistribusikan ulang, menyalin bagian substansial kode sumber, atau memperjualbelikan template ini untuk kepentingan komersial pihak ketiga tanpa persetujuan tertulis resmi dari pemegang hak cipta **klikada.com**.
