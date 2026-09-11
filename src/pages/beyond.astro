@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { BeyondAcademiaPage } from '../components/pages/BeyondAcademiaPage';
+import { getPortfolioData } from '../lib/keystatic';
+
+const data = await getPortfolioData();
+---
+
+<Layout 
+  title={`Beyond Academia: Holistic Discipline - ${data.profile.name}`}
+  description="Martial arts disciplines (Judo, BJJ, Boxing, Wing Chun) and their philosophical synergy with doctoral research rigour."
+  currentPage="beyond"
+  data={data}
+>
+  <BeyondAcademiaPage
+    client:load
+    items={data.martialArts}
+    pageContent={data.pageContent}
+    somaticReflections={data.somaticReflections}
+    onNavigate={(page) => {
+      if (typeof window !== 'undefined') {
+        window.location.href = page === 'home' ? '/' : '/' + page;
+      }
+    }}
+    onOpenSanity={() => {}}
+  />
+</Layout>

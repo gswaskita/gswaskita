@@ -1,0 +1,33 @@
+{
+  "id": "book-4",
+  "isFeatured": false,
+  "featuredOrder": "1",
+  "title": "Manajemen Kualitas Pelayanan Jasa Perbankan & Hospitality",
+  "subtitle": "Service Excellence & Customer Loyalty Blueprint",
+  "publisher": "Salemba Empat",
+  "year": 2022,
+  "isbn": "978-979-061-840-2",
+  "coverUrl": "https://images.unsplash.com/photo-1532012164546-f432f2e3edd3?auto=format&fit=crop&w=800&q=80",
+  "coverGradient": "from-emerald-800 via-teal-950 to-slate-950",
+  "blurb": "Kajian mendalam mengenai pengukuran gap kualitas layanan dengan model E-SERVQUAL dan SERVPERF, diperkaya dengan studi kasus bank komersial dan industri perhotelan nasional.",
+  "status": "Published",
+  "topics": [
+    "Service Quality",
+    "Customer Retention",
+    "Hospitality",
+    "Measurement Tools"
+  ],
+  "ctaText": "Beli di Salemba Store",
+  "ctaUrl": "https://penerbitsalemba.com",
+  "pages": 260,
+  "marketplaceLinks": [
+    {
+      "name": "Salemba Empat",
+      "url": "https://penerbitsalemba.com"
+    },
+    {
+      "name": "Gramedia",
+      "url": "https://www.gramedia.com"
+    }
+  ]
+}

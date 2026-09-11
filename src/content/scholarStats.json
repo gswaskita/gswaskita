@@ -1,0 +1,54 @@
+{
+  "sectionBadge": "SINTA Kemdiktisaintek • Garuda Index",
+  "sectionTitle": "SINTA Garuda Publications & Metric Timeline",
+  "sectionSubtitle": "Dokumen publikasi terindeks Garba Rujukan Digital (Garuda), tren garis melengkung (curved chart) metrik publikasi per tahun, dan repositori riset terverifikasi SINTA ID: 6801795.",
+  "chartLatestBadge": "Latest number of publications",
+  "chartIndexBadge": "SINTA Garuda Index",
+  "chartTitle": "Garuda Annual Publication Trajectory",
+  "chartSubtitle": "Curved line chart of publications indexed in Garba Rujukan Digital (Kemdiktisaintek)",
+  "sintaGarudaUrl": "https://sinta.kemdiktisaintek.go.id/authors/profile/6801795/?view=garuda",
+  "garudaPublicationsCount": 21,
+  "garudaCitationsCount": 18,
+  "totalCitations": 348,
+  "hIndex": 9,
+  "i10Index": 8,
+  "yearlyCitations": [
+    {
+      "year": 2023,
+      "count": 1
+    },
+    {
+      "year": 2024,
+      "count": 4
+    },
+    {
+      "year": 2025,
+      "count": 10
+    },
+    {
+      "year": 2026,
+      "count": 6
+    }
+  ],
+  "yearlyPublications": [
+    {
+      "year": 2023,
+      "count": 3
+    },
+    {
+      "year": 2024,
+      "count": 4
+    },
+    {
+      "year": 2025,
+      "count": 10
+    },
+    {
+      "year": 2026,
+      "count": 6
+    }
+  ],
+  "vosViewerUrl": "https://drive.google.com/file/d/1ydhJ76eKMrtE5aHM1hOSGTW7SBqF6OqH/view?usp=sharing",
+  "vosViewerTitle": "Scientometrics & Bibliometric Term Co-occurrence Mapping",
+  "vosViewerDescription": "Peta bibliometrik interaktif ini menggambarkan struktur jejaring kemunculan bersama istilah (term co-occurrence network) dalam jurnal Scientometrics. Lingkaran merepresentasikan istilah/kata kunci keilmuan yang paling sering diteliti, ketebalan garis menghubungkan topik yang sering muncul bersamaan dalam dokumen yang sama, dan klaster warna mengelompokkan sub-bidang kajian scientometrics seperti citation analysis, patent analysis, scientific collaboration, dan research evaluation. Visualisasi ini memberikan wawasan mendalam mengenai tren keilmuan dan evolusi metodologi riset."
+}

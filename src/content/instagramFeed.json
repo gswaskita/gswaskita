@@ -1,0 +1,102 @@
+{
+  "username": "tamzkee",
+  "profileUrl": "https://www.instagram.com/tamzkee/",
+  "displayName": "Gautama Sastra Waskita",
+  "bio": "Lecturer & PhD Applicant • Operations Management • Kyokushin Karate & PSHT • Fieldwork Dispatches",
+  "avatarUrl": "",
+  "postsCount": "248",
+  "followersCount": "1.4k",
+  "followingCount": "392",
+  "statusBadge": "Live Connected",
+  "sectionBadge": "Live Instagram Social Feed",
+  "sectionTitle": "Instagram Activity & Fieldwork Feed",
+  "sectionSubtitle": "Direct connection to @tamzkee's social media activity — documentation of SME operations fieldwork, doctoral seminars, university lecturing, and somatic endurance discipline.",
+  "followButtonText": "Follow @tamzkee on Instagram",
+  "dmButtonText": "Direct Message",
+  "viewProfileText": "View complete profile @tamzkee",
+  "bannerTitle": "Follow the Research Journey & Doctoral Dispatches on Instagram",
+  "bannerSubtitle": "Receive regular updates on SME operations fieldwork, international conference proceedings, and daily somatic discipline routines directly from @tamzkee.",
+  "bannerCtaText": "Follow @tamzkee on Instagram",
+  "posts": [
+    {
+      "id": "ig-1",
+      "caption": "Investigating operational logistics bottlenecks directly on the factory floor with manufacturing supervisors. Qualitative fieldwork consistently delivers empirical grounding that theoretical equations alone cannot capture. #OperationsManagement #QualitativeResearch #Fieldwork #SMETransformation #UNUBlitar",
+      "imageUrl": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+      "postUrl": "https://www.instagram.com/tamzkee/",
+      "date": "2 days ago",
+      "likes": 142,
+      "comments": 18,
+      "category": "Field Research"
+    },
+    {
+      "id": "ig-2",
+      "caption": "Presenting empirical findings on family-owned SME dynamic capability readiness at the International Conference on Operations Research. Engaging scholarly dialogue with international peers regarding digital transformation friction across Southeast Asia. #Conference #OperationsResearch #AcademicLife #KualaLumpur #EmeraldInsight",
+      "imageUrl": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+      "postUrl": "https://www.instagram.com/tamzkee/",
+      "date": "5 days ago",
+      "likes": 215,
+      "comments": 27,
+      "category": "Conference"
+    },
+    {
+      "id": "ig-3",
+      "caption": "Morning Kyokushin dojo conditioning: the 'Osu' philosophy teaches perseverance under intense physical pressure. That same stamina and fortitude forms the cognitive foundation for tackling doctoral proposal revisions and peer reviews. #Kyokushin #Karate #Osu #SomaticDiscipline #PhDGrind",
+      "imageUrl": "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=800&q=80",
+      "postUrl": "https://www.instagram.com/tamzkee/",
+      "date": "1 week ago",
+      "likes": 189,
+      "comments": 22,
+      "category": "Somatic Discipline"
+    },
+    {
+      "id": "ig-4",
+      "caption": "Interactive Operations Management seminar this semester at Universitas Tulungagung. Guiding students through real-world supply chain resilience case studies and post-crisis lean operational mitigation. #Teaching #UNUBlitar #Blitar #OperationsManagement #HigherEd",
+      "imageUrl": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+      "postUrl": "https://www.instagram.com/tamzkee/",
+      "date": "2 weeks ago",
+      "likes": 176,
+      "comments": 14,
+      "category": "Teaching"
+    },
+    {
+      "id": "ig-5",
+      "caption": "On-site mentoring for traditional market merchants adopting cloud cash-flow accounting and digital payment infrastructure. Digital inclusion must remain human-centric to eliminate adoption friction for grassroots micro-enterprises. #CommunityService #DigitalInclusion #MicroEnterprises #PublicEngagement",
+      "imageUrl": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
+      "postUrl": "https://www.instagram.com/tamzkee/",
+      "date": "3 weeks ago",
+      "likes": 198,
+      "comments": 31,
+      "category": "Community"
+    },
+    {
+      "id": "ig-6",
+      "caption": "Late evening academic manuscript synthesis and VOSviewer bibliometric term co-occurrence mapping for the UK PhD Application Dossier. Methodical progression, step by step. #PhDApplication #UKUniversities #LiteratureReview #VOSviewer #ResearchRoadmap",
+      "imageUrl": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+      "postUrl": "https://www.instagram.com/tamzkee/",
+      "date": "1 month ago",
+      "likes": 234,
+      "comments": 36,
+      "category": "Doctoral Journey"
+    },
+    {
+      "id": "ig-7",
+      "caption": "Tactical boxing sparring drill: calibrating timing, distance, and situational awareness under constant incoming pressure. Mirrors defending theoretical propositions during intense academic viva examinations. #Boxing #Pertina #TacticalAgility #SpatialAwareness #Discipline",
+      "imageUrl": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=800&q=80",
+      "postUrl": "https://www.instagram.com/tamzkee/",
+      "date": "1 month ago",
+      "likes": 164,
+      "comments": 19,
+      "category": "Somatic Discipline"
+    },
+    {
+      "id": "ig-8",
+      "caption": "Facilitating an executive focus group discussion with commercial retail banking practitioners on E-SERVQUAL dimensions and consumer adoption resistance against AI self-service technologies. Rich qualitative empirical material. #FocusGroupDiscussion #SERVQUAL #DigitalBanking #ScopusResearch",
+      "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+      "postUrl": "https://www.instagram.com/tamzkee/",
+      "date": "2 months ago",
+      "likes": 208,
+      "comments": 25,
+      "category": "Field Research"
+    }
+  ]
+}

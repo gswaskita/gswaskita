@@ -1,0 +1,28 @@
+{
+  "sectionBadge": "Education & Academic Qualifications",
+  "sectionTitle": "Education & Academic Qualifications",
+  "sectionDescription": "Formal academic degrees, specialization tracks, and doctoral admission timeline.",
+  "timeline": [
+    {
+      "degree": "Doctor of Philosophy (PhD) in Operations Management",
+      "institution": "Target: Top-Tier UK Universities (Warwick, Manchester, Leeds, Bath)",
+      "period": "2025 – Present (Prospective Candidate)",
+      "focus": "Sustainable Value Chains, Dynamic Sensing Capabilities & SME Operations",
+      "status": "Application & Supervisory Review Stage"
+    },
+    {
+      "degree": "Magister Manajemen (M.M.) / Master of Management",
+      "institution": "Universitas Tulungagung",
+      "period": "2015 – 2017",
+      "focus": "Operations Management & Service Quality Optimization (Magna Cum Laude)",
+      "status": "Graduated with Honors"
+    },
+    {
+      "degree": "Sarjana Ekonomi (S.E.) / Bachelor of Economics",
+      "institution": "Universitas Tulungagung",
+      "period": "2010 – 2014",
+      "focus": "Business Administration & Quantitative Research Methods",
+      "status": "Graduated with Honors"
+    }
+  ]
+}

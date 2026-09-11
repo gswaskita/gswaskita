@@ -1,0 +1,602 @@
+{
+    "network": {
+        "items": [
+            {
+                "id": 17,
+                "label": "content marketing",
+                "x": 0.0419,
+                "y": 0.0503,
+                "cluster": 2,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 26,
+                "label": "digital ecosystem",
+                "x": -0.7752,
+                "y": -0.2124,
+                "cluster": 3,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2026
+                }
+            },
+            {
+                "id": 30,
+                "label": "digital marketing",
+                "x": -0.4218,
+                "y": 0.1226,
+                "cluster": 4,
+                "weights": {
+                    "Occurrences": 3
+                },
+                "scores": {
+                    "Avg. pub. year": 2024.6667
+                }
+            },
+            {
+                "id": 35,
+                "label": "dynamic capabilities",
+                "x": 0.936,
+                "y": 0.3501,
+                "cluster": 5,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2025
+                }
+            },
+            {
+                "id": 36,
+                "label": "dynamic capability",
+                "x": 1.0468,
+                "y": -0.0892,
+                "cluster": 6,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2025
+                }
+            },
+            {
+                "id": 37,
+                "label": "e-wom",
+                "x": -0.6657,
+                "y": 0.4733,
+                "cluster": 7,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 43,
+                "label": "entrepreneurship",
+                "x": -0.1549,
+                "y": -0.2746,
+                "cluster": 8,
+                "weights": {
+                    "Occurrences": 2
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 50,
+                "label": "frugal innovation",
+                "x": 1.0118,
+                "y": 0.2357,
+                "cluster": 9,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2025
+                }
+            },
+            {
+                "id": 55,
+                "label": "green marketing",
+                "x": -0.7417,
+                "y": 0.6329,
+                "cluster": 10,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 62,
+                "label": "innovation and consumer ethics",
+                "x": -0.6022,
+                "y": 0.5985,
+                "cluster": 11,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 96,
+                "label": "operations management",
+                "x": -0.5253,
+                "y": -0.325,
+                "cluster": 12,
+                "weights": {
+                    "Occurrences": 2
+                },
+                "scores": {
+                    "Avg. pub. year": 2025
+                }
+            },
+            {
+                "id": 116,
+                "label": "resource constraints",
+                "x": 0.8379,
+                "y": 0.2628,
+                "cluster": 13,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2025
+                }
+            },
+            {
+                "id": 118,
+                "label": "sdgs",
+                "x": -0.3376,
+                "y": -0.531,
+                "cluster": 14,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 131,
+                "label": "sme",
+                "x": -0.471,
+                "y": -0.6062,
+                "cluster": 15,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 133,
+                "label": "smes",
+                "x": 0.5829,
+                "y": 0.0279,
+                "cluster": 1,
+                "weights": {
+                    "Occurrences": 3
+                },
+                "scores": {
+                    "Avg. pub. year": 2024.6667
+                }
+            },
+            {
+                "id": 136,
+                "label": "social media marketing",
+                "x": 0.0784,
+                "y": -0.0689,
+                "cluster": 16,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 137,
+                "label": "strategic agility",
+                "x": 0.8907,
+                "y": 0.0586,
+                "cluster": 1,
+                "weights": {
+                    "Occurrences": 2
+                },
+                "scores": {
+                    "Avg. pub. year": 2025
+                }
+            },
+            {
+                "id": 138,
+                "label": "supply chain",
+                "x": -0.8025,
+                "y": -0.0773,
+                "cluster": 17,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2026
+                }
+            },
+            {
+                "id": 139,
+                "label": "sustainability",
+                "x": -0.8046,
+                "y": 0.5041,
+                "cluster": 18,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 140,
+                "label": "sustainability business",
+                "x": -0.337,
+                "y": -0.662,
+                "cluster": 19,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2024
+                }
+            },
+            {
+                "id": 142,
+                "label": "sustainability strategy",
+                "x": 0.8828,
+                "y": -0.1524,
+                "cluster": 20,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2025
+                }
+            },
+            {
+                "id": 148,
+                "label": "tiktok affiliate",
+                "x": -0.6668,
+                "y": -0.1007,
+                "cluster": 21,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2026
+                }
+            },
+            {
+                "id": 153,
+                "label": "vuca",
+                "x": 0.997,
+                "y": -0.217,
+                "cluster": 22,
+                "weights": {
+                    "Occurrences": 1
+                },
+                "scores": {
+                    "Avg. pub. year": 2025
+                }
+            }
+        ],
+        "links": [
+            {
+                "source_id": 17,
+                "target_id": 30,
+                "strength": 1
+            },
+            {
+                "source_id": 17,
+                "target_id": 43,
+                "strength": 1
+            },
+            {
+                "source_id": 17,
+                "target_id": 133,
+                "strength": 1
+            },
+            {
+                "source_id": 17,
+                "target_id": 136,
+                "strength": 1
+            },
+            {
+                "source_id": 26,
+                "target_id": 30,
+                "strength": 1
+            },
+            {
+                "source_id": 26,
+                "target_id": 96,
+                "strength": 1
+            },
+            {
+                "source_id": 26,
+                "target_id": 138,
+                "strength": 1
+            },
+            {
+                "source_id": 26,
+                "target_id": 148,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 37,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 43,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 55,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 62,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 96,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 133,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 136,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 138,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 139,
+                "strength": 1
+            },
+            {
+                "source_id": 30,
+                "target_id": 148,
+                "strength": 1
+            },
+            {
+                "source_id": 35,
+                "target_id": 50,
+                "strength": 1
+            },
+            {
+                "source_id": 35,
+                "target_id": 116,
+                "strength": 1
+            },
+            {
+                "source_id": 35,
+                "target_id": 133,
+                "strength": 1
+            },
+            {
+                "source_id": 35,
+                "target_id": 137,
+                "strength": 1
+            },
+            {
+                "source_id": 36,
+                "target_id": 133,
+                "strength": 1
+            },
+            {
+                "source_id": 36,
+                "target_id": 137,
+                "strength": 1
+            },
+            {
+                "source_id": 36,
+                "target_id": 142,
+                "strength": 1
+            },
+            {
+                "source_id": 36,
+                "target_id": 153,
+                "strength": 1
+            },
+            {
+                "source_id": 37,
+                "target_id": 55,
+                "strength": 1
+            },
+            {
+                "source_id": 37,
+                "target_id": 62,
+                "strength": 1
+            },
+            {
+                "source_id": 37,
+                "target_id": 139,
+                "strength": 1
+            },
+            {
+                "source_id": 43,
+                "target_id": 96,
+                "strength": 1
+            },
+            {
+                "source_id": 43,
+                "target_id": 118,
+                "strength": 1
+            },
+            {
+                "source_id": 43,
+                "target_id": 131,
+                "strength": 1
+            },
+            {
+                "source_id": 43,
+                "target_id": 133,
+                "strength": 1
+            },
+            {
+                "source_id": 43,
+                "target_id": 136,
+                "strength": 1
+            },
+            {
+                "source_id": 43,
+                "target_id": 140,
+                "strength": 1
+            },
+            {
+                "source_id": 50,
+                "target_id": 116,
+                "strength": 1
+            },
+            {
+                "source_id": 50,
+                "target_id": 133,
+                "strength": 1
+            },
+            {
+                "source_id": 50,
+                "target_id": 137,
+                "strength": 1
+            },
+            {
+                "source_id": 55,
+                "target_id": 62,
+                "strength": 1
+            },
+            {
+                "source_id": 55,
+                "target_id": 139,
+                "strength": 1
+            },
+            {
+                "source_id": 62,
+                "target_id": 139,
+                "strength": 1
+            },
+            {
+                "source_id": 96,
+                "target_id": 118,
+                "strength": 1
+            },
+            {
+                "source_id": 96,
+                "target_id": 131,
+                "strength": 1
+            },
+            {
+                "source_id": 96,
+                "target_id": 138,
+                "strength": 1
+            },
+            {
+                "source_id": 96,
+                "target_id": 140,
+                "strength": 1
+            },
+            {
+                "source_id": 96,
+                "target_id": 148,
+                "strength": 1
+            },
+            {
+                "source_id": 116,
+                "target_id": 133,
+                "strength": 1
+            },
+            {
+                "source_id": 116,
+                "target_id": 137,
+                "strength": 1
+            },
+            {
+                "source_id": 118,
+                "target_id": 131,
+                "strength": 1
+            },
+            {
+                "source_id": 118,
+                "target_id": 140,
+                "strength": 1
+            },
+            {
+                "source_id": 131,
+                "target_id": 140,
+                "strength": 1
+            },
+            {
+                "source_id": 133,
+                "target_id": 136,
+                "strength": 1
+            },
+            {
+                "source_id": 133,
+                "target_id": 137,
+                "strength": 2
+            },
+            {
+                "source_id": 133,
+                "target_id": 142,
+                "strength": 1
+            },
+            {
+                "source_id": 133,
+                "target_id": 153,
+                "strength": 1
+            },
+            {
+                "source_id": 137,
+                "target_id": 142,
+                "strength": 1
+            },
+            {
+                "source_id": 137,
+                "target_id": 153,
+                "strength": 1
+            },
+            {
+                "source_id": 138,
+                "target_id": 148,
+                "strength": 1
+            },
+            {
+                "source_id": 142,
+                "target_id": 153,
+                "strength": 1
+            }
+        ]
+    }
+}

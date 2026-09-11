@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { BlogPage } from '../../components/pages/BlogPage';
+import { getPortfolioData, getBlogPostBySlug } from '../../lib/keystatic';
+import { INITIAL_PORTFOLIO_DATA } from '../../data/portfolioData';
+
+export async function getStaticPaths() {
+  const data = await getPortfolioData();
+  const posts = data.blogPosts || INITIAL_PORTFOLIO_DATA.blogPosts || [];
+  
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { slug } = Astro.params;
+const { post } = Astro.props;
+const data = await getPortfolioData();
+---
+
+<Layout 
+  title={`${post?.title || 'Academic Article'} - ${data.profile.name}`}
+  description={post?.excerpt || data.profile.bioQuote}
+  currentPage="blog"
+  data={data}
+>
+  <BlogPage
+    client:load
+    posts={data.blogPosts || []}
+    profile={data.profile}
+    phdStatus={data.phdStatus}
+    pageContent={data.pageContent}
+    initialSlug={slug}
+    currentUser={null}
+    onOpenLogin={() => {}}
+    comments={data.comments || []}
+    onAddComment={() => {}}
+    onLikeComment={() => {}}
+    onNavigate={(page) => {
+      if (typeof window !== 'undefined') {
+        window.location.href = page === 'home' ? '/' : '/' + page;
+      }
+    }}
+  />
+</Layout>

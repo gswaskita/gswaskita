@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Production build outputs
+dist/
+build/
+.vercel/
+.astro/
+
+# Environment and Secrets (CRITICAL: Never commit to GitHub)
+.env
+.env.production
+.env.local
+.env.*.local
+!.env.example
+
+# IDE & Editor files
+.vscode/
+.antigravity/
+.DS_Store
+Thumbs.db
+
+# Logs & Temporary
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+scratch/

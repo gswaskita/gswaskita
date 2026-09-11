@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ResearchPage } from '../components/pages/ResearchPage';
+import { getPortfolioData } from '../lib/keystatic';
+
+const data = await getPortfolioData();
+---
+
+<Layout 
+  title={`Peer-Reviewed Research & Articles - ${data.profile.name}`}
+  description="Searchable academic publications, Scopus & SINTA indexed journal papers, citation counts, BibTeX export, and DOIs."
+  currentPage="research"
+  data={data}
+>
+  <ResearchPage
+    client:load
+    articles={data.articles || data.researchArticles}
+    scholarStats={data.scholarStats}
+    pageContent={data.pageContent}
+    onNavigate={(page) => {
+      if (typeof window !== 'undefined') {
+        window.location.href = page === 'home' ? '/' : '/' + page;
+      }
+    }}
+    onOpenSanity={() => {}}
+  />
+</Layout>

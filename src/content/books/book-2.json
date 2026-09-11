@@ -1,0 +1,36 @@
+{
+  "id": "book-2",
+  "isFeatured": true,
+  "featuredOrder": "2",
+  "title": "Transformasi Digital UMKM: Panduan Strategis Akselerasi Bisnis",
+  "subtitle": "Digital Transformation Playbook for SMEs & Family Enterprises",
+  "publisher": "Erlangga Academic Series",
+  "year": 2024,
+  "isbn": "978-602-298-892-1",
+  "coverGradient": "from-sky-700 via-blue-900 to-slate-950",
+  "blurb": "Menjembatani kerja lapangan empiris dengan langkah manajerial terapan. Buku ini memandu pelaku UMKM bertransisi dari pencatatan manual menuju operasional terintegrasi cloud dan keterlibatan pelanggan omnichannel.",
+  "status": "Published",
+  "topics": [
+    "SME Digitalization",
+    "Omnichannel Ops",
+    "Change Management",
+    "Fintech Adoption"
+  ],
+  "ctaText": "Beli di Erlangga Store",
+  "ctaUrl": "https://erlangga.co.id",
+  "pages": 288,
+  "marketplaceLinks": [
+    {
+      "name": "Erlangga Store",
+      "url": "https://erlangga.co.id"
+    },
+    {
+      "name": "Tokopedia",
+      "url": "https://www.tokopedia.com"
+    },
+    {
+      "name": "Bukalapak",
+      "url": "https://www.bukalapak.com"
+    }
+  ]
+}

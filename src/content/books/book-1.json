@@ -1,0 +1,36 @@
+{
+  "id": "book-1",
+  "isFeatured": true,
+  "featuredOrder": "1",
+  "title": "Manajemen Operasi Modern: Teori, Kasus, dan Praktik Berkelanjutan",
+  "subtitle": "Modern Operations Management in the Digital Era",
+  "publisher": "Penerbit Andi & Academic Press",
+  "year": 2023,
+  "isbn": "978-623-01-3412-8",
+  "coverImage": "/static/images/books/book-1/coverImage.jpeg",
+  "blurb": "Buku teks universitas komprehensif dan referensi praktisi yang mensintesis teori operasional klasik, metodologi Lean Six Sigma, dan manajemen rantai pasok modern berstandar ESG untuk lanskap bisnis Asia Tenggara.",
+  "status": "Upcoming",
+  "topics": [
+    "Operations Strategy",
+    "Lean Systems",
+    "Supply Chain Sustainability",
+    "Case Studies"
+  ],
+  "ctaText": "Beli di Gramedia",
+  "ctaUrl": "https://www.gramedia.com",
+  "pages": 412,
+  "marketplaceLinks": [
+    {
+      "name": "Gramedia Official",
+      "url": "https://www.gramedia.com"
+    },
+    {
+      "name": "Tokopedia Official Store",
+      "url": "https://www.tokopedia.com"
+    },
+    {
+      "name": "Shopee Mall",
+      "url": "https://shopee.co.id"
+    }
+  ]
+}

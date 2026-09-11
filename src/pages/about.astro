@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { AboutMePage } from '../components/pages/AboutMePage';
+import { getPortfolioData } from '../lib/keystatic';
+
+const data = await getPortfolioData();
+---
+
+<Layout 
+  title={`About Me - ${data.profile.name} (Academic Background & PhD Application)`}
+  description={`Academic foundations, research philosophy, education timeline, and PhD research goals of ${data.profile.name}.`}
+  currentPage="about"
+  data={data}
+>
+  <AboutMePage
+    client:load
+    pillars={data.aboutPillars}
+    profile={data.profile}
+    education={data.education}
+    pageContent={data.pageContent}
+    onNavigate={(page) => {
+      if (typeof window !== 'undefined') {
+        window.location.href = page === 'home' ? '/' : '/' + page;
+      }
+    }}
+    onOpenCV={() => {}}
+    onOpenContact={() => {}}
+    onOpenSanity={() => {}}
+  />
+</Layout>

@@ -1,0 +1,482 @@
+---
+import '../index.css';
+import { Image } from 'astro:assets';
+import { INITIAL_PORTFOLIO_DATA, generateJsonLdSchemaString } from '../data/portfolioData';
+import type { PageId, ThemeMode, AuthorProfile, PortfolioDataState } from '../types';
+
+interface Props {
+  title?: string;
+  description?: string;
+  currentPage?: PageId;
+  data?: PortfolioDataState;
+}
+
+const { 
+  title = "Gautama Sastra Waskita - Academic Portfolio & PhD Research", 
+  description = "Personal academic portfolio and research showcase of Gautama Sastra Waskita for UK PhD application in Operations Management, Sustainable Digital Business, and SME Digitalization.",
+  currentPage = "home",
+  data = INITIAL_PORTFOLIO_DATA
+} = Astro.props;
+
+const jsonLd = generateJsonLdSchemaString(data);
+const brandPhoto = data.profile.brandImage || data.profile.brandImageUrl;
+const faviconSrc = brandPhoto || '/favicon.ico';
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline src="/crypto-polyfill.js"></script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="profile" />
+    {brandPhoto ? (
+      <>
+        <link rel="icon" href={faviconSrc} />
+        <link rel="apple-touch-icon" href={faviconSrc} />
+      </>
+    ) : (
+      <>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      </>
+    )}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script type="application/ld+json" set:html={jsonLd} />
+    <script is:inline>
+      // Immediate theme initialization before first paint to prevent flash
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('gautama_portfolio_theme');
+          const isDark = savedTheme ? (savedTheme === 'dark') : false;
+          
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.backgroundColor = '#0A192F';
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.backgroundColor = '#F8FAFC';
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-[#F8FAFC] dark:bg-[#0A192F] text-slate-900 dark:text-slate-100 antialiased selection:bg-blue-500 selection:text-white min-h-screen flex flex-col font-sans transition-colors duration-200 w-full max-w-full">
+    
+    {/* Astro Multi-Page Responsive Navigation Header */}
+    <header class="sticky top-0 z-50 transition-colors duration-200 backdrop-blur-xl border-b border-slate-300 dark:border-white/10 bg-white/95 dark:bg-[#0A192F]/90 text-slate-900 dark:text-white w-full max-w-full shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-18">
+          
+          {/* Brand Monogram & Name */}
+          <a href="/" aria-label={`${data.profile.name} - Home`} class="flex items-center gap-3 text-left focus:outline-none group shrink-0">
+            <div class="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center font-bold text-sm tracking-wider transition-transform group-hover:scale-105 shadow bg-blue-600 dark:bg-white text-white dark:text-blue-900 shrink-0 border border-slate-200 dark:border-white/10">
+              {brandPhoto ? (
+                <Image
+                  src={brandPhoto}
+                  alt={data.profile.name}
+                  width={36}
+                  height={36}
+                  class="w-full h-full object-cover"
+                  loading="eager"
+                />
+              ) : (
+                <span>GW</span>
+              )}
+            </div>
+            <div>
+              <span class="font-bold tracking-tight text-sm sm:text-base group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors block text-slate-900 dark:text-white">
+                {data.profile.name}
+              </span>
+            </div>
+          </a>
+
+          {/* Desktop Navigation Links */}
+          <nav class="hidden lg:flex items-center gap-1">
+            <a href="/" class={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${currentPage === 'home' ? 'bg-blue-600 text-white dark:bg-white dark:text-blue-950 shadow-md font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}`}>
+              Home
+            </a>
+            <a href="/about" class={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${currentPage === 'about' ? 'bg-blue-600 text-white dark:bg-white dark:text-blue-950 shadow-md font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}`}>
+              About Me
+            </a>
+            <a href="/research" class={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${currentPage === 'research' ? 'bg-blue-600 text-white dark:bg-white dark:text-blue-950 shadow-md font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}`}>
+              Research
+            </a>
+            <a href="/books" class={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${currentPage === 'books' ? 'bg-blue-600 text-white dark:bg-white dark:text-blue-950 shadow-md font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}`}>
+              Books
+            </a>
+            <a href="/blog" class={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${currentPage === 'blog' ? 'bg-blue-600 text-white dark:bg-white dark:text-blue-950 shadow-md font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}`}>
+              Blog
+            </a>
+            <a href="/gallery" class={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${currentPage === 'gallery' ? 'bg-blue-600 text-white dark:bg-white dark:text-blue-950 shadow-md font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}`}>
+              Gallery
+            </a>
+            <a href="/beyond" class={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${currentPage === 'beyond' ? 'bg-blue-600 text-white dark:bg-white dark:text-blue-950 shadow-md font-bold' : 'text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}`}>
+              Beyond Academia
+            </a>
+          </nav>
+
+          {/* Right Action Controls (Theme toggle & Mobile menu button) */}
+          <div class="flex items-center gap-2 shrink-0">
+
+            <button
+              id="theme-toggle-btn"
+              type="button"
+              aria-label="Toggle dark / light mode"
+              class="p-2 rounded-full border border-slate-300 dark:border-white/15 bg-slate-100 dark:bg-white/5 text-amber-500 dark:text-amber-300 hover:bg-slate-200 dark:hover:bg-white/15 transition-all cursor-pointer text-sm shadow-sm"
+            >
+              ☀️
+            </button>
+
+            {/* Mobile Hamburger Toggle Button */}
+            <button
+              id="mobile-menu-btn"
+              type="button"
+              aria-label="Toggle mobile navigation menu"
+              aria-expanded="false"
+              class="lg:hidden p-2 rounded-xl border border-slate-300 dark:border-white/15 bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-white/15 transition-all cursor-pointer shadow-sm flex items-center justify-center"
+            >
+              <svg id="hamburger-icon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+              <svg id="close-icon" class="w-5 h-5 hidden transition-transform text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+        {/* Expandable Mobile Navigation Drawer Sheet */}
+        <div
+          id="mobile-menu-drawer"
+          class="hidden lg:hidden border-t border-slate-300 dark:border-white/10 bg-white/98 dark:bg-[#060F1E]/98 backdrop-blur-2xl shadow-2xl transition-all duration-300 py-4 px-2 space-y-3"
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <a 
+              href="/" 
+              class={`flex items-center justify-between p-3 rounded-2xl border text-xs sm:text-sm font-semibold transition-all ${
+                currentPage === 'home' 
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md font-bold' 
+                  : 'border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10'
+              }`}
+            >
+              <span class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-xs">🏠</span>
+                <span>Home</span>
+              </span>
+              {currentPage === 'home' && <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-mono font-bold">Active</span>}
+            </a>
+
+            <a 
+              href="/about" 
+              class={`flex items-center justify-between p-3 rounded-2xl border text-xs sm:text-sm font-semibold transition-all ${
+                currentPage === 'about' 
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md font-bold' 
+                  : 'border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10'
+              }`}
+            >
+              <span class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold text-xs">👤</span>
+                <span>About Me</span>
+              </span>
+              {currentPage === 'about' && <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-mono font-bold">Active</span>}
+            </a>
+
+            <a 
+              href="/research" 
+              class={`flex items-center justify-between p-3 rounded-2xl border text-xs sm:text-sm font-semibold transition-all ${
+                currentPage === 'research' 
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md font-bold' 
+                  : 'border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10'
+              }`}
+            >
+              <span class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold text-xs">🎓</span>
+                <span>Research &amp; Publications</span>
+              </span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-bold">
+                {(data.articles || data.researchArticles || []).length} Papers
+              </span>
+            </a>
+
+            <a 
+              href="/books" 
+              class={`flex items-center justify-between p-3 rounded-2xl border text-xs sm:text-sm font-semibold transition-all ${
+                currentPage === 'books' 
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md font-bold' 
+                  : 'border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10'
+              }`}
+            >
+              <span class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold text-xs">📚</span>
+                <span>Books &amp; Monographs</span>
+              </span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 font-bold">
+                {(data.books || []).length} Books
+              </span>
+            </a>
+
+            <a 
+              href="/blog" 
+              class={`flex items-center justify-between p-3 rounded-2xl border text-xs sm:text-sm font-semibold transition-all ${
+                currentPage === 'blog' 
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md font-bold' 
+                  : 'border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10'
+              }`}
+            >
+              <span class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center font-bold text-xs">📝</span>
+                <span>Blog &amp; Research Notes</span>
+              </span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 font-bold">
+                {(data.blogPosts || []).length} Posts
+              </span>
+            </a>
+
+            <a 
+              href="/gallery" 
+              class={`flex items-center justify-between p-3 rounded-2xl border text-xs sm:text-sm font-semibold transition-all ${
+                currentPage === 'gallery' 
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md font-bold' 
+                  : 'border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10'
+              }`}
+            >
+              <span class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold text-xs">📷</span>
+                <span>Photo Gallery</span>
+              </span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-300 font-bold">
+                {(data.galleryItems || []).length} Photos
+              </span>
+            </a>
+
+            <a 
+              href="/beyond" 
+              class={`flex items-center justify-between p-3 rounded-2xl border text-xs sm:text-sm font-semibold transition-all ${
+                currentPage === 'beyond' 
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md font-bold' 
+                  : 'border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10'
+              }`}
+            >
+              <span class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold text-xs">🥋</span>
+                <span>Beyond Academia</span>
+              </span>
+              {currentPage === 'beyond' && <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-mono font-bold">Active</span>}
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {/* Main Page Slot */}
+    <main class="flex-1 w-full max-w-full min-w-0">
+      <slot />
+    </main>
+
+    {/* Footer */}
+    <footer class="border-t border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-[#060f1e] text-slate-700 dark:text-slate-300 transition-colors duration-200 overflow-hidden w-full max-w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+          
+          <div class="lg:col-span-4 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center font-bold text-sm shadow bg-blue-600 dark:bg-white text-white dark:text-blue-900 shrink-0 border border-slate-200 dark:border-white/10">
+                {brandPhoto ? (
+                  <Image
+                    src={brandPhoto}
+                    alt={data.profile.name}
+                    width={36}
+                    height={36}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span>GW</span>
+                )}
+              </div>
+              <div>
+                <span class="font-bold text-base block text-slate-900 dark:text-white">
+                  {data.profile.name} {data.profile.suffix}
+                </span>
+                <span class="text-xs text-blue-600 dark:text-blue-400 font-mono block">
+                  {data.profile.role}
+                </span>
+              </div>
+            </div>
+            <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+              {data.profile.bioQuote}
+            </p>
+          </div>
+
+          <div class="lg:col-span-4 space-y-3">
+            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+              {data.pageContent?.footerSubpagesHeading || 'Academic Subpages & Repository'}
+            </h4>
+            <ul class="space-y-1.5 text-xs">
+              <li><a href="/about" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">{data.pageContent?.footerNavAbout || 'About • Academic Foundation'}</a></li>
+              <li><a href="/research" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">{data.pageContent?.footerNavResearch || 'Research • Peer-Reviewed Papers'}</a></li>
+              <li><a href="/books" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">{data.pageContent?.footerNavBooks || 'Books • Textbooks & Monographs'}</a></li>
+              <li><a href="/blog" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">{data.pageContent?.footerNavBlog || 'Blog • Qualitative Working Notes'}</a></li>
+              <li><a href="/gallery" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">{data.pageContent?.footerNavGallery || 'Gallery • Academic Activities'}</a></li>
+              <li><a href="/beyond" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">{data.pageContent?.footerNavBeyond || 'Beyond • Martial Arts Synergy'}</a></li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-4 space-y-3">
+            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+              {data.phdStatus?.footerStatusTitle || 'UK PhD Application Status'}
+            </h4>
+            <div class="p-3 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-xs space-y-1 shadow-sm">
+              <p class="font-semibold text-slate-900 dark:text-white">{data.phdStatus?.footerFocus || 'Focus: Sustainable Dynamic Value Networks'}</p>
+              <p class="text-[11px] text-slate-600 dark:text-slate-400">{data.phdStatus?.footerDescription || 'Open for doctoral supervision alignment in Operations Management across UK institutions.'}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-8 border-t border-slate-200 dark:border-white/10 grid grid-cols-1 md:grid-cols-3 items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+          <div class="text-center md:text-left">
+            <span>&copy; {new Date().getFullYear()} {data.phdStatus?.copyrightText || `${data.profile.name}. All rights reserved.`}</span>
+          </div>
+
+          <div class="flex justify-center text-center">
+            <p class="footer-heart inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans text-slate-600 dark:text-slate-300">
+              <span>Made with</span>
+              <g-emoji class="g-emoji inline-flex items-center" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">
+                <Image class="emoji inline-block align-middle w-4 h-4 mx-0.5" alt="heart" width={16} height={16} loading="lazy" src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png" />
+              </g-emoji> 
+              <span>by</span>
+              <a href="https://masden.klikada.com" target="_blank" rel="noopener noreferrer" class="footer-heart-link font-bold">masden.</a><a href="https://masden.klikada.com" target="_blank" rel="noopener noreferrer" class="footer-logo-link inline-flex items-center" title="klikada.com" aria-label="klikada.com"><g-emoji class="g-emoji inline-flex items-center" alias="klikada" fallback-src="https://cloud.klikada.com/image/klikada.com-logo.png"><Image class="emoji inline-block align-middle h-5 w-auto object-contain hover:opacity-80 transition-opacity" alt="klikada.com" width={200} height={31} loading="lazy" src="https://cloud.klikada.com/image/klikada.com-logo.png" /></g-emoji></a>
+            </p>
+          </div>
+
+          <div class="flex items-center justify-center md:justify-end">
+            <a 
+              href="/keystatic"
+              class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-slate-100/90 dark:bg-white/[0.05] border border-slate-200/80 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 hover:bg-slate-200/50 dark:hover:bg-white/[0.08] transition-all duration-200 group shadow-xs"
+              title="ADAScholar - The Ultimate Researcher Profile Builder"
+            >
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0 transition-transform group-hover:scale-105 duration-200">
+                <defs>
+                  <linearGradient id="footer-adascholar-cap-grad" x1="3" y1="4" x2="29" y2="17" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#3b82f6"></stop>
+                    <stop offset="0.6" stop-color="#4f46e5"></stop>
+                    <stop offset="1" stop-color="#7c3aed"></stop>
+                  </linearGradient>
+                  <linearGradient id="footer-adascholar-book-grad" x1="8" y1="20" x2="24" y2="28" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2563eb"></stop>
+                    <stop offset="1" stop-color="#0284c7"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M16 4L29 10.5L16 17L3 10.5L16 4Z" fill="url(#footer-adascholar-cap-grad)"></path>
+                <path d="M8 13.5V19.5C8 22.8 11.5 25 16 25C20.5 25 24 22.8 24 19.5V13.5L16 17.5L8 13.5Z" class="fill-slate-700 dark:fill-slate-300" opacity="0.9"></path>
+                <path d="M10 22C12.5 23.5 14.5 23.8 16 23.8C17.5 23.8 19.5 23.5 22 22V24.5C19.5 26 17.5 26.5 16 26.5C14.5 26.5 12.5 26 10 24.5V22Z" fill="url(#footer-adascholar-book-grad)"></path>
+                <path d="M25.5 12V20.5C25.5 21.8 24.2 22.8 23 22.8" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"></path>
+                <circle cx="23" cy="23" r="1.5" fill="#f59e0b"></circle>
+                <circle cx="16" cy="10.5" r="1.5" fill="#ffffff"></circle>
+              </svg>
+              <div class="flex flex-col text-left leading-tight">
+                <span class="font-extrabold text-[13px] tracking-tight text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-sans">ADAScholar</span>
+                <span class="text-[9.5px] font-medium text-slate-500 dark:text-slate-400 tracking-normal whitespace-nowrap font-sans">The Ultimate Researcher Profile Builder</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Client-side theme toggler with real-time sync across Astro & React Islands
+      (function() {
+        const btn = document.getElementById('theme-toggle-btn');
+        
+        function syncThemeUi() {
+          const isDark = document.documentElement.classList.contains('dark');
+          if (btn) {
+            btn.textContent = isDark ? '☀️' : '🌙';
+            btn.setAttribute('title', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+          }
+        }
+
+        syncThemeUi();
+
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const isCurrentlyDark = document.documentElement.classList.contains('dark');
+            const newTheme = isCurrentlyDark ? 'light' : 'dark';
+            
+            if (newTheme === 'dark') {
+              document.documentElement.classList.add('dark');
+              document.documentElement.style.backgroundColor = '#0A192F';
+              document.documentElement.style.colorScheme = 'dark';
+            } else {
+              document.documentElement.classList.remove('dark');
+              document.documentElement.style.backgroundColor = '#F8FAFC';
+              document.documentElement.style.colorScheme = 'light';
+            }
+            
+            localStorage.setItem('gautama_portfolio_theme', newTheme);
+            syncThemeUi();
+            
+            // Dispatch event for all React Island components
+            window.dispatchEvent(new CustomEvent('theme-change', { detail: newTheme }));
+          });
+        }
+
+        // Client-side Mobile Navigation Drawer Toggler
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menuDrawer = document.getElementById('mobile-menu-drawer');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        if (menuBtn && menuDrawer) {
+          menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isClosed = menuDrawer.classList.contains('hidden');
+            if (isClosed) {
+              menuDrawer.classList.remove('hidden');
+              menuBtn.setAttribute('aria-expanded', 'true');
+              hamburgerIcon?.classList.add('hidden');
+              closeIcon?.classList.remove('hidden');
+            } else {
+              menuDrawer.classList.add('hidden');
+              menuBtn.setAttribute('aria-expanded', 'false');
+              hamburgerIcon?.classList.remove('hidden');
+              closeIcon?.classList.add('hidden');
+            }
+          });
+
+          // Close on clicking outside or navigating
+          document.addEventListener('click', (e) => {
+            if (!menuDrawer.contains(e.target) && !menuBtn.contains(e.target)) {
+              menuDrawer.classList.add('hidden');
+              menuBtn.setAttribute('aria-expanded', 'false');
+              hamburgerIcon?.classList.remove('hidden');
+              closeIcon?.classList.add('hidden');
+            }
+          });
+
+          // Close on escape key
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+              menuDrawer.classList.add('hidden');
+              menuBtn.setAttribute('aria-expanded', 'false');
+              hamburgerIcon?.classList.remove('hidden');
+              closeIcon?.classList.add('hidden');
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

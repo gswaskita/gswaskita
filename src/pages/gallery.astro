@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { GalleryPage } from '../components/pages/GalleryPage';
+import { getPortfolioData } from '../lib/keystatic';
+
+const data = await getPortfolioData();
+---
+
+<Layout 
+  title={`Activity & Fieldwork Photo Gallery - ${data.profile.name}`}
+  description="High-resolution gallery of international academic symposiums, university lectures, teaching, and practitioner workshops."
+  currentPage="gallery"
+  data={data}
+>
+  <GalleryPage
+    client:load
+    items={data.galleryItems}
+    pageContent={data.pageContent}
+    instagramFeed={data.instagramFeed}
+    profile={data.profile}
+    onNavigate={(page) => {
+      if (typeof window !== 'undefined') {
+        window.location.href = page === 'home' ? '/' : '/' + page;
+      }
+    }}
+    onOpenSanity={() => {}}
+  />
+</Layout>

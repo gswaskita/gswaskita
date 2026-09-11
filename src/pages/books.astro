@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { BooksPage } from '../components/pages/BooksPage';
+import { getPortfolioData } from '../lib/keystatic';
+
+const data = await getPortfolioData();
+---
+
+<Layout 
+  title={`Authored Books & Monographs - ${data.profile.name}`}
+  description="Academic textbooks, research monographs, and university methodology handbooks with publisher and marketplace links."
+  currentPage="books"
+  data={data}
+>
+  <BooksPage
+    client:load
+    books={data.books}
+    pageContent={data.pageContent}
+    onNavigate={(page) => {
+      if (typeof window !== 'undefined') {
+        window.location.href = page === 'home' ? '/' : '/' + page;
+      }
+    }}
+    onOpenSanity={() => {}}
+  />
+</Layout>

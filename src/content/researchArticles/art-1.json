@@ -1,0 +1,23 @@
+{
+  "id": "art-1",
+  "isFeatured": true,
+  "featuredOrder": "1",
+  "title": "Service Quality and Customer Satisfaction in Indonesian Digital Banking: An Empirical Investigation of Mobile Banking Adoption",
+  "authors": "Gautama Sastra Waskita, Rina Handayani, Hendro Prasetyo, Budi Setiawan, Maya Anggraini",
+  "journal": "Journal of Sustainable Digital Business & Management",
+  "year": 2024,
+  "citations": 88,
+  "doi": "10.1016/j.jsdbm.2024.100412",
+  "url": "https://doi.org/10.1016/j.jsdbm.2024.100412",
+  "category": "Service Quality",
+  "abstract": "Investigates customer behavioral retention and loyalty dimensions across Indonesian commercial banks implementing automated AI teller interfaces and digital KYC protocols.",
+  "status": "Published",
+  "keywords": [
+    "Service Quality",
+    "SERVQUAL",
+    "Digital Banking",
+    "Customer Satisfaction",
+    "Mobile Banking",
+    "Fintech"
+  ]
+}

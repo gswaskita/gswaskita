@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Hero } from '../components/Hero';
+import { AboutSection } from '../components/AboutSection';
+import { ScholarSection } from '../components/ScholarSection';
+import { BooksSection } from '../components/BooksSection';
+import { BlogSummarySection } from '../components/BlogSummarySection';
+import { GallerySection } from '../components/GallerySection';
+import { BeyondAcademia } from '../components/BeyondAcademia';
+import { getPortfolioData } from '../lib/keystatic';
+
+const data = await getPortfolioData();
+---
+
+<Layout 
+  title={`${data.profile.name} - Academic Portfolio & PhD Research (Astro + Keystatic)`}
+  description={data.profile.bioQuote}
+  currentPage="home"
+  data={data}
+>
+  <div class="space-y-4">
+    
+    {/* 1. Hero Section (Profile photo, Scholar live metrics, Citation Trajectory, UK PhD target, CTA) */}
+    <Hero
+      client:load
+      profile={data.profile}
+      scholarStats={data.scholarStats}
+      phdStatus={data.phdStatus}
+      onOpenCV={() => {}}
+      onOpenContact={() => {}}
+      onOpenSanity={() => {}}
+      onNavigate={(page) => {
+        if (typeof window !== 'undefined') {
+          window.location.href = page === 'home' ? '/' : '/' + page;
+        }
+      }}
+    />
+
+    {/* 2. Section 2: Academic Foundation */}
+    <AboutSection
+      client:visible
+      pillars={data.aboutPillars}
+      profile={data.profile}
+      pageContent={data.pageContent}
+      phdStatus={data.phdStatus}
+      onNavigate={(page) => {
+        if (typeof window !== 'undefined') {
+          window.location.href = page === 'home' ? '/' : '/' + page;
+        }
+      }}
+    />
+
+    {/* 3. Section 3: Peer-Reviewed Journal Publications & Scholar Metrics explorer */}
+    <ScholarSection
+      client:visible
+      articles={data.articles || data.researchArticles}
+      scholarStats={data.scholarStats}
+      pageContent={data.pageContent}
+      onNavigate={(page) => {
+        if (typeof window !== 'undefined') {
+          window.location.href = page === 'home' ? '/' : '/' + page;
+        }
+      }}
+    />
+
+    {/* 4. Section 4: Books & Monographs */}
+    <BooksSection
+      client:visible
+      books={data.books}
+      pageContent={data.pageContent}
+      onNavigate={(page) => {
+        if (typeof window !== 'undefined') {
+          window.location.href = page === 'home' ? '/' : '/' + page;
+        }
+      }}
+    />
+
+    {/* 5. Section 5: Academic Insights & Blog Summary */}
+    <BlogSummarySection
+      client:visible
+      posts={data.blogPosts}
+      pageContent={data.pageContent}
+      onNavigate={(page, slug) => {
+        if (typeof window !== 'undefined') {
+          window.location.href = slug ? `/blog/${slug}` : (page === 'home' ? '/' : '/' + page);
+        }
+      }}
+    />
+
+    {/* 6. Section 6: Activity Photo Gallery & Instagram Feed */}
+    <GallerySection
+      client:visible
+      items={data.galleryItems}
+      pageContent={data.pageContent}
+      instagramFeed={data.instagramFeed}
+      onNavigate={(page) => {
+        if (typeof window !== 'undefined') {
+          window.location.href = page === 'home' ? '/' : '/' + page;
+        }
+      }}
+    />
+
+    {/* 7. Section 7: Holistic Discipline (Martial Arts Synergy) */}
+    <BeyondAcademia
+      client:visible
+      items={data.martialArts}
+      pageContent={data.pageContent}
+      onNavigate={(page) => {
+        if (typeof window !== 'undefined') {
+          window.location.href = page === 'home' ? '/' : '/' + page;
+        }
+      }}
+    />
+
+  </div>
+</Layout>

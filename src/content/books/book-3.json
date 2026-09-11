@@ -1,0 +1,33 @@
+{
+  "id": "book-3",
+  "isFeatured": true,
+  "featuredOrder": "1",
+  "title": "Visual Methods in Management Research: A Field Guide for PhD Scholars",
+  "subtitle": "Qualitative Visual Conceptualization in Operational Systems",
+  "publisher": "Forthcoming / UK Academic Monograph",
+  "year": 2026,
+  "isbn": "978-1-138-90412-4",
+  "coverUrl": "https://repository.sadapenerbit.com/public/presses/1/submission_296_298_coverImage_en_US_t.png",
+  "coverGradient": "from-indigo-900 via-purple-950 to-slate-950",
+  "blurb": "Panduan metodologis lanjutan yang mengeksplorasi diagramatisasi visual, pemetaan proses kognitif, dan grounded visual theory untuk memperkaya penyelidikan kualitatif yang ketat pada jaringan operasi kompleks.",
+  "status": "Upcoming",
+  "topics": [
+    "Qualitative Methods",
+    "Visual Mapping",
+    "PhD Methodologies",
+    "Operations Theory"
+  ],
+  "ctaText": "Pre-order & Proposal Review",
+  "ctaUrl": "mailto:bosdeni@gmail.com?subject=Inquiry%20Regarding%20Upcoming%20Monograph",
+  "pages": 340,
+  "marketplaceLinks": [
+    {
+      "name": "Publisher Advance Notice",
+      "url": "mailto:drwashari@gmail.com"
+    },
+    {
+      "name": "Google Books Preview",
+      "url": "https://books.google.com"
+    }
+  ]
+}
