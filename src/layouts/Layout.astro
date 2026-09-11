@@ -3,6 +3,7 @@ import '../index.css';
 import { Image } from 'astro:assets';
 import { INITIAL_PORTFOLIO_DATA, generateJsonLdSchemaString } from '../data/portfolioData';
 import type { PageId, ThemeMode, AuthorProfile, PortfolioDataState } from '../types';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
   title?: string;
@@ -72,6 +73,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
         } catch (e) {}
       })();
     </script>
+    <SpeedInsights />
   </head>
   <body class="bg-[#F8FAFC] dark:bg-[#0A192F] text-slate-900 dark:text-slate-100 antialiased selection:bg-blue-500 selection:text-white min-h-screen flex flex-col font-sans transition-colors duration-200 w-full max-w-full">
     
