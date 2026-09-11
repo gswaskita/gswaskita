@@ -23,12 +23,15 @@
   "pages": 285,
   "marketplaceLinks": [
     {
-      "name": "Publisher Advance Notice",
+      "name": "Google Books",
+      "url": "https://books.google.com"
+    },
+    {
+      "name": "Tokopedia",
       "url": "mailto:drwashari@gmail.com"
     },
     {
-      "name": "Google Books",
-      "url": "https://books.google.com"
+      "name": "Bukalapak"
     }
   ]
 }
