@@ -5,24 +5,24 @@
   "timeline": [
     {
       "degree": "Doctor of Philosophy (PhD) in Operations Management",
+      "status": "Application & Supervisory Review Stage",
       "institution": "Target: Top-Tier UK Universities (Warwick, Manchester, Leeds, Bath)",
-      "period": "2025 – Present (Prospective Candidate)",
       "focus": "Sustainable Value Chains, Dynamic Sensing Capabilities & SME Operations",
-      "status": "Application & Supervisory Review Stage"
+      "period": "2025 – Present (Prospective Candidate)"
     },
     {
       "degree": "Magister Manajemen (M.M.) / Master of Management",
-      "institution": "Universitas Tulungagung",
-      "period": "2015 – 2017",
-      "focus": "Operations Management & Service Quality Optimization (Magna Cum Laude)",
-      "status": "Graduated with Honors"
+      "status": "Graduated with Honors",
+      "institution": "Universitas Islam Kadiri (UNISKA)",
+      "focus": "Marketing Management & Service Quality Optimization (Magna Cum Laude)",
+      "period": "2017 – 2019"
     },
     {
       "degree": "Sarjana Ekonomi (S.E.) / Bachelor of Economics",
+      "status": "Graduated with Honors",
       "institution": "Universitas Tulungagung",
-      "period": "2010 – 2014",
       "focus": "Business Administration & Quantitative Research Methods",
-      "status": "Graduated with Honors"
+      "period": "2010 – 2014"
     }
   ]
 }
