@@ -97,7 +97,7 @@ function getLogs(): any[] {
       title: 'Media Asset Uploaded',
       description: 'Uploaded field research photo "fieldwork-traditional-market.webp" to public/static/images/posts/',
       target: '/static/images/posts/fieldwork-traditional-market.webp',
-      user: 'Dr. Gautama Sastra Waskita (Lead Author)',
+      user: 'Gautama Sastra Waskita, S.E., B.BA., M.M. (Lead Author)',
       ip: '180.252.164.22',
       device: 'macOS Chrome 134.0 (Desktop)',
       status: 'success',

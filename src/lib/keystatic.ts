@@ -502,7 +502,7 @@ export async function getPortfolioData(): Promise<PortfolioDataState> {
           likes: e.entry.likes || 0,
           reply: e.entry.reply?.text ? {
             text: e.entry.reply.text,
-            authorName: e.entry.reply.authorName || 'Dr. Gautama Sastra Waskita',
+            authorName: e.entry.reply.authorName || `${profile.name}${profile.suffix ? `, ${profile.suffix}` : ''}`,
             repliedAt: e.entry.reply.repliedAt || '',
           } : undefined,
         }))

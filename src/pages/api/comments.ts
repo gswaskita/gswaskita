@@ -18,7 +18,7 @@ function getDefaultAuthorName(): string {
       return `${prefix}${p.name}${suffix}`.trim();
     }
   } catch (e) {}
-  return 'Prof. DR. Ir. H. Gautama Sastra Waskita, S.E., B.BA., M.M.';
+  return 'Gautama Sastra Waskita, S.E., B.BA., M.M.';
 }
 
 // Helper to map status to clean prefix (approve, pending, hiden)
@@ -381,7 +381,7 @@ export const PATCH: APIRoute = async ({ request }) => {
         });
       }
 
-      // Default author automatically to Dr. Gautama's formal profile unless specified
+      // Default author automatically to Gautama's formal profile unless specified
       const defaultAuthor = getDefaultAuthorName();
       const authorName = (body.authorName && body.authorName.trim()) || defaultAuthor;
 

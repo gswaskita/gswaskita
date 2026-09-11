@@ -60,7 +60,7 @@ function scanDirectory(dir: string, baseType: 'image' | 'doc' | 'media'): MediaI
         publicUrl,
         sizeBytes: stats.size,
         uploadedAt: stats.mtime.toISOString(),
-        uploader: 'Dr. Gautama Sastra Waskita (Lead Author)',
+        uploader: 'Gautama Sastra Waskita, S.E., B.BA., M.M. (Lead Author)',
         aspectRatio,
       });
     }
@@ -91,7 +91,7 @@ export const GET: APIRoute = async () => {
           publicUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
           sizeBytes: 345000,
           uploadedAt: new Date(Date.now() - 86400000 * 2).toISOString(),
-          uploader: 'Dr. Gautama Sastra Waskita',
+          uploader: 'Gautama Sastra Waskita, S.E., B.BA., M.M.',
           aspectRatio: '16:9',
         },
         {
@@ -102,7 +102,7 @@ export const GET: APIRoute = async () => {
           publicUrl: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80',
           sizeBytes: 412000,
           uploadedAt: new Date(Date.now() - 86400000 * 5).toISOString(),
-          uploader: 'Dr. Gautama Sastra Waskita',
+          uploader: 'Gautama Sastra Waskita, S.E., B.BA., M.M.',
           aspectRatio: '4:3',
         },
         {
@@ -113,7 +113,7 @@ export const GET: APIRoute = async () => {
           publicUrl: '/static/docs/UK_PhD_Research_Proposal_Dossier.pdf',
           sizeBytes: 1850000,
           uploadedAt: new Date(Date.now() - 86400000 * 1).toISOString(),
-          uploader: 'Dr. Gautama Sastra Waskita',
+          uploader: 'Gautama Sastra Waskita, S.E., B.BA., M.M.',
           aspectRatio: '1:1',
         },
         {
@@ -124,7 +124,7 @@ export const GET: APIRoute = async () => {
           publicUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
           sizeBytes: 15400000,
           uploadedAt: new Date(Date.now() - 86400000 * 3).toISOString(),
-          uploader: 'Dr. Gautama Sastra Waskita',
+          uploader: 'Gautama Sastra Waskita, S.E., B.BA., M.M.',
           aspectRatio: '16:9',
         }
       );

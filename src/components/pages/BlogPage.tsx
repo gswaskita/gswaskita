@@ -86,7 +86,7 @@ const ScholarlyDiscussionSection: React.FC<ScholarlyDiscussionSectionProps> = ({
   postTitle,
   isDark,
   currentUser,
-  authorName = 'Dr. Gautama Sastra Waskita (Author)',
+  authorName = 'Gautama Sastra Waskita, S.E., B.BA., M.M.',
   onCommentCountChange,
 }) => {
   const [comments, setComments] = useState<ScholarlyCommentItem[]>([]);
@@ -626,7 +626,7 @@ const ScholarlyDiscussionSection: React.FC<ScholarlyDiscussionSectionProps> = ({
                           <ShieldCheck className="w-3.5 h-3.5 text-blue-500" />
                         </span>
                         <span className="text-xs font-bold font-sans text-blue-600 dark:text-blue-400">
-                          {comment.reply.authorName || 'Dr. Gautama Sastra Waskita (Author Response)'}
+                          {comment.reply.authorName || `${authorName} (Author Response)`}
                         </span>
                         <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-blue-500/10 text-blue-500 border border-blue-500/20 font-semibold">
                           VERIFIED
