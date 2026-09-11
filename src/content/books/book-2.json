@@ -2,12 +2,13 @@
   "id": "book-2",
   "isFeatured": true,
   "featuredOrder": "2",
-  "title": "Transformasi Digital UMKM: Panduan Strategis Akselerasi Bisnis",
-  "subtitle": "Digital Transformation Playbook for SMEs & Family Enterprises",
-  "publisher": "Erlangga Academic Series",
-  "year": 2024,
+  "title": "Ekonomi Sumber Daya Alam dan Lingkungan",
+  "subtitle": "Ekonomi Sumber Daya Alam dan Lingkungan",
+  "publisher": "CV. Sada Kurnia Pustaka",
+  "year": 2025,
   "isbn": "978-602-298-892-1",
   "coverGradient": "from-sky-700 via-blue-900 to-slate-950",
+  "coverImage": "/static/images/books/book-2/coverImage.jpg",
   "blurb": "Menjembatani kerja lapangan empiris dengan langkah manajerial terapan. Buku ini memandu pelaku UMKM bertransisi dari pencatatan manual menuju operasional terintegrasi cloud dan keterlibatan pelanggan omnichannel.",
   "status": "Published",
   "topics": [
@@ -16,8 +17,8 @@
     "Change Management",
     "Fintech Adoption"
   ],
-  "ctaText": "Beli di Erlangga Store",
-  "ctaUrl": "https://erlangga.co.id",
+  "ctaText": "Beli di Google Book",
+  "ctaUrl": "https://www.google.co.id/books/edition/Ekonomi_Sumber_Daya_Alam_dan_Lingkungan/",
   "pages": 288,
   "marketplaceLinks": [
     {
