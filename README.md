@@ -134,7 +134,6 @@ Untuk mengaktifkan sinkronisasi otomatis antara Vercel dan GitHub saat website l
 | :--- | :--- |
 | `PUBLIC_KEYSTATIC_GITHUB_REPO` | Nama repositori GitHub publik/privat Anda (contoh: `gswaskita/gswaskita`). |
 | `GITHUB_TOKEN` | GitHub Personal Access Token (izin cakupan `repo`) untuk penyimpanan otomatis komentar dan konten. |
-| `GEMINI_API_KEY` | *(Opsional)* Kunci API untuk asisten ringkasan riset kecerdasan buatan. |
 
 ---
 
