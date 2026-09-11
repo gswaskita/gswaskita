@@ -1,16 +1,16 @@
 {
   "id": "pertina-boxing",
-  "name": "Pertina Boxing",
-  "type": "Amateur Olympic Boxing Federation",
+  "name": "Boxing",
+  "type": "Indonesia Amateur Boxing Federation",
   "subtitle": "Tactical Agility, Spatial Awareness & Composure",
-  "keyPillars": [
-    "Rapid Decision Making",
-    "Pressure Management",
-    "Strategic Sportsmanship"
-  ],
   "description": "High-cadence tactical boxing develops instant situational evaluation, distance management, and the stamina to counter-punch constructively under relentless incoming pressure.",
   "academicParallel": "Developing fast-paced academic debate agility, defending theoretical propositions in viva voce examinations, and maintaining scholarly objectivity during rigorous peer reviews.",
   "badge": "Olympic Amateur Boxing",
   "iconName": "Zap",
-  "order": 3
+  "order": 3,
+  "keyPillars": [
+    "Rapid Decision Making",
+    "Pressure Management",
+    "Strategic Sportsmanship"
+  ]
 }
