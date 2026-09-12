@@ -1,16 +1,16 @@
 {
   "id": "mindful-conditioning-breathwork",
-  "name": "Mindful Conditioning & Breathwork",
-  "type": "Holistic Health & Somatic Focus",
-  "subtitle": "Stress Regulation & Sustained Cognitive Stamina",
+  "name": "Coffee-Entrepreneurship",
+  "type": "Innovation & Value Creation",
+  "subtitle": "Entrepreneurship & Sustainable Value",
+  "description": "Entrepreneurial experience in the coffee sector provides a living laboratory where business practice, sustainability, innovation, and community engagement converge—connecting firsthand entrepreneurial experience with broader research on SME innovation and sustainable entrepreneurial ecosystems.",
+  "academicParallel": "The experience of building and developing coffee ventures provides an empirical foundation for examining how SMEs transform constraints into capabilities, capabilities into innovation, and innovation into sustainable value within emerging entrepreneurial ecosystems.",
+  "badge": "Entrepreneurship",
+  "iconName": "Activity",
+  "order": 4,
   "keyPillars": [
     "Diaphragmatic Focus",
     "Cortisol Regulation",
     "High Cognitive Uptime"
-  ],
-  "description": "Daily structured conditioning balancing aerobic cardiovascular output with deliberate breath control to optimize neuro-cognitive stamina during intensive academic manuscript writing.",
-  "academicParallel": "Preventing academic burnout, sustaining intellectual curiosity during dense theoretical literature reviews, and fostering long-term scholarly vitality.",
-  "badge": "Somatic Conditioning",
-  "iconName": "Activity",
-  "order": 4
+  ]
 }
