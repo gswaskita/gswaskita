@@ -2,32 +2,37 @@
   "id": "book-4",
   "isFeatured": false,
   "featuredOrder": "1",
-  "title": "Manajemen Kualitas Pelayanan Jasa Perbankan & Hospitality",
-  "subtitle": "Service Excellence & Customer Loyalty Blueprint",
-  "publisher": "Salemba Empat",
-  "year": 2022,
-  "isbn": "978-979-061-840-2",
+  "title": "Analisis Proses Bisnis",
+  "subtitle": "Analisis Proses Bisnis",
+  "publisher": "Get Press Indonesia",
+  "year": 2026,
+  "isbn": "978-634-255-737-2",
   "coverUrl": "https://images.unsplash.com/photo-1532012164546-f432f2e3edd3?auto=format&fit=crop&w=800&q=80",
   "coverGradient": "from-emerald-800 via-teal-950 to-slate-950",
-  "blurb": "Kajian mendalam mengenai pengukuran gap kualitas layanan dengan model E-SERVQUAL dan SERVPERF, diperkaya dengan studi kasus bank komersial dan industri perhotelan nasional.",
+  "coverImage": "/static/images/books/book-4/coverImage.png",
+  "blurb": "Business Process Analysis provides a systematic framework for understanding, mapping, evaluating, and improving business processes to enhance organizational efficiency, effectiveness, and value creation. Integrating process thinking, process mapping, performance analysis, and continuous improvement, this book bridges academic concepts with practical applications across contemporary organizations undergoing digital transformation.",
   "status": "Published",
   "topics": [
-    "Service Quality",
-    "Customer Retention",
-    "Hospitality",
-    "Measurement Tools"
+    "Business Process Analysis",
+    "Business Process Management",
+    "Process Improvement",
+    "Digital Transformation"
   ],
-  "ctaText": "Beli di Salemba Store",
-  "ctaUrl": "https://penerbitsalemba.com",
-  "pages": 260,
+  "ctaText": "Beli di Google Books",
+  "ctaUrl": "https://books.google.co.id",
+  "pages": 152,
   "marketplaceLinks": [
     {
-      "name": "Salemba Empat",
-      "url": "https://penerbitsalemba.com"
+      "name": "Google Books",
+      "url": "https://books.google.co.id"
     },
     {
-      "name": "Gramedia",
-      "url": "https://www.gramedia.com"
+      "name": "Tokopedia",
+      "url": "https://www.tokopedia.com"
+    },
+    {
+      "name": "Bukalapak",
+      "url": "bukalapak.com"
     }
   ]
 }
