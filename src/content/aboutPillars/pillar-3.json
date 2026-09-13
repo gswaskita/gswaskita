@@ -1,13 +1,13 @@
 {
   "id": "pillar-3",
-  "title": "University - Industry Impact",
-  "description": "In the lecture hall and graduate seminars, I utilize inductive case method teaching and experiential factory walk-throughs. Students engage with living empirical datasets, diagnosing real operational bottlenecks rather than memorizing static textbook definitions.",
-  "quote": "Builds bridges between universities, industry, students, and entrepreneurs to create meaningful pathways from knowledge to opportunity.",
+  "title": "Digital Business & Entrepreneurial Transformation",
+  "description": "Investigating how entrepreneurs and SMEs navigate digital transformation and leverage digital technologies to create new opportunities, innovate business models, and strengthen competitiveness. My work connects digital entrepreneurship with emerging-market realities, while examining how digital capabilities can generate meaningful and sustainable business outcomes.",
+  "quote": "Explores how digital technologies reshape entrepreneurship, innovation, and competitive advantage.",
   "icon": "Lightbulb",
   "tags": [
-    "Industry Collaboration",
-    "Internship & Career Development",
-    "Student Entrepreneurship"
+    "Digital Entrepreneurship",
+    "Digital Competence",
+    "Digital Innovation"
   ],
   "order": 3
 }
