@@ -1005,7 +1005,16 @@ export default config({
       path: 'src/content/blogPosts/*',
       format: { data: 'json' },
       schema: {
-        slug: fields.slug({ name: { label: 'Slug / URL Key' } }),
+        slug: fields.slug({
+          name: {
+            label: 'Slug / URL Key',
+            description: 'Slug URL akan dihasilkan otomatis dari teks ini saat pertama kali dibuat.',
+          },
+          slug: {
+            label: 'Slug URL Postingan (Terkunci Otomatis)',
+            description: 'PENTING: Jangan membuka kunci gembok atau mengubah slug setelah diterbitkan agar link dan Git sync tidak rusak.',
+          },
+        }),
         title: fields.text({ label: 'Article Title' }),
         excerpt: fields.text({ label: 'Excerpt / Summary', multiline: true }),
         category: fields.text({ label: 'Category' }),

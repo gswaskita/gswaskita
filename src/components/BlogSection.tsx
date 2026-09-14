@@ -14,12 +14,16 @@ import {
 import { BLOG_POSTS } from '../data/portfolioData';
 
 export const BlogSection: React.FC = () => {
-  const [selectedPostSlug, setSelectedPostSlug] = useState<string>(BLOG_POSTS[0].slug);
+  const [selectedPostSlug, setSelectedPostSlug] = useState<string>(BLOG_POSTS[0]?.slug || '');
   const [activeHeadingId, setActiveHeadingId] = useState<string>('');
   const [copiedLink, setCopiedLink] = useState(false);
   const articleContentRef = useRef<HTMLDivElement>(null);
 
   const activePost = BLOG_POSTS.find((p) => p.slug === selectedPostSlug) || BLOG_POSTS[0];
+
+  if (!activePost) {
+    return null;
+  }
 
   // Scrollspy effect: detects which H2/H3 heading is currently near top of viewport
   useEffect(() => {
