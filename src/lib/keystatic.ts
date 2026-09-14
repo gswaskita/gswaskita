@@ -442,7 +442,7 @@ export async function getPortfolioData(): Promise<PortfolioDataState> {
             content: blocks,
           } as BlogPost;
         }))
-      : INITIAL_PORTFOLIO_DATA.blogPosts;
+      : [];
 
     const aboutPillars: AboutPillar[] = pillarEntries.length > 0
       ? pillarEntries

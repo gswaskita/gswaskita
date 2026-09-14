@@ -77,89 +77,97 @@ export const BlogSummarySection: React.FC<BlogSummarySectionProps> = ({
       </div>
 
       {/* 3 Summary Cards Grid with Landscape Previews */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 min-w-0 w-full">
-        {recentPosts.map((post) => {
-          const autoReadTime = formatReadingTime(post);
-          const words = calculateWordCount(post);
+      {recentPosts.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 min-w-0 w-full">
+          {recentPosts.map((post) => {
+            const autoReadTime = formatReadingTime(post);
+            const words = calculateWordCount(post);
 
-          return (
-            <div
-              key={post.slug}
-              className={`p-4 sm:p-6 rounded-2xl border transition-all flex flex-col justify-between hover:shadow-xl group min-w-0 max-w-full w-full overflow-hidden ${
-                isDark 
-                  ? 'bg-white/10 backdrop-blur-md border-white/20 text-white hover:border-white/40' 
-                  : 'bg-white border-slate-200 text-slate-900 shadow-sm hover:border-blue-300'
-              }`}
-            >
-              <div className="space-y-4">
-                {/* Landscape Visual Header (Photo or Diagram Schematic) */}
-                <a href={`/blog/${post.slug}`} className="block">
-                  <LandscapeBlogVisual
-                    post={post}
-                    theme={theme}
-                    variant="card"
-                  />
-                </a>
+            return (
+              <div
+                key={post.slug}
+                className={`p-4 sm:p-6 rounded-2xl border transition-all flex flex-col justify-between hover:shadow-xl group min-w-0 max-w-full w-full overflow-hidden ${
+                  isDark 
+                    ? 'bg-white/10 backdrop-blur-md border-white/20 text-white hover:border-white/40' 
+                    : 'bg-white border-slate-200 text-slate-900 shadow-sm hover:border-blue-300'
+                }`}
+              >
+                <div className="space-y-4">
+                  {/* Landscape Visual Header (Photo or Diagram Schematic) */}
+                  <a href={`/blog/${post.slug}`} className="block">
+                    <LandscapeBlogVisual
+                      post={post}
+                      theme={theme}
+                      variant="card"
+                    />
+                  </a>
 
-                {/* Category & Read time */}
-                <div className="flex items-center justify-between gap-2 flex-wrap text-[11px] font-mono">
-                  <span className={`px-2.5 py-0.5 rounded-full font-semibold border ${
-                    isDark ? 'bg-blue-950/60 border-blue-400/30 text-blue-300' : 'bg-blue-50 border-blue-200 text-blue-700'
+                  {/* Category & Read time */}
+                  <div className="flex items-center justify-between gap-2 flex-wrap text-[11px] font-mono">
+                    <span className={`px-2.5 py-0.5 rounded-full font-semibold border ${
+                      isDark ? 'bg-blue-950/60 border-blue-400/30 text-blue-300' : 'bg-blue-50 border-blue-200 text-blue-700'
+                    }`}>
+                      {post.category}
+                    </span>
+
+                    <span className={`flex items-center gap-1 ${isDark ? 'text-blue-300' : 'text-blue-700 font-semibold'}`}>
+                      <Clock className="w-3 h-3" />
+                      <span>{autoReadTime}</span>
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <a href={`/blog/${post.slug}`} className="block">
+                    <h3 className={`text-lg sm:text-xl font-bold line-clamp-2 transition-colors ${
+                      isDark ? 'group-hover:text-blue-400 text-white' : 'group-hover:text-blue-600 text-slate-900'
+                    }`}>
+                      {post.title}
+                    </h3>
+                  </a>
+
+                  {/* Excerpt */}
+                  <p className={`text-xs line-clamp-3 leading-relaxed ${
+                    isDark ? 'text-slate-300' : 'text-slate-600'
                   }`}>
-                    {post.category}
-                  </span>
-
-                  <span className={`flex items-center gap-1 ${isDark ? 'text-blue-300' : 'text-blue-700 font-semibold'}`}>
-                    <Clock className="w-3 h-3" />
-                    <span>{autoReadTime}</span>
-                  </span>
+                    {post.excerpt}
+                  </p>
                 </div>
 
-                {/* Title */}
-                <a href={`/blog/${post.slug}`} className="block">
-                  <h3 
-                    className={`text-base font-bold leading-snug group-hover:text-blue-500 transition-colors ${
-                      isDark ? 'text-white' : 'text-slate-900'
+                {/* Footer Meta */}
+                <div className={`mt-6 pt-4 border-t flex items-center justify-between text-xs ${
+                  isDark ? 'border-white/10' : 'border-slate-100'
+                }`}>
+                  <span className="flex items-center gap-1.5 text-slate-400 font-mono text-[11px]">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>{post.date}</span>
+                  </span>
+
+                  <a
+                    href={`/blog/${post.slug}`}
+                    className={`text-xs font-bold flex items-center gap-1.5 transition-colors group-hover:translate-x-1 ${
+                      isDark ? 'text-blue-300 hover:text-white' : 'text-blue-600 hover:text-blue-800'
                     }`}
                   >
-                    {post.title}
-                  </h3>
-                </a>
+                    <span>Read Article</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
 
-                {/* Excerpt */}
-                <p className={`text-xs sm:text-sm leading-relaxed line-clamp-2 ${
-                  isDark ? 'text-slate-300' : 'text-slate-600'
-                }`}>
-                  {post.excerpt}
-                </p>
               </div>
-
-              {/* Read Full Article Button & Word Count */}
-              <div className={`pt-4 mt-4 border-t flex items-center justify-between ${
-                isDark ? 'border-white/10' : 'border-slate-200'
-              }`}>
-                <span className={`text-[11px] font-mono flex items-center gap-1 ${
-                  isDark ? 'text-slate-400' : 'text-slate-500'
-                }`}>
-                  <Calendar className="w-3 h-3" />
-                  <span>{post.date}</span>
-                </span>
-
-                <a
-                  href={`/blog/${post.slug}`}
-                  className={`text-xs font-bold flex items-center gap-1.5 transition-colors group-hover:translate-x-1 ${
-                    isDark ? 'text-blue-300 hover:text-white' : 'text-blue-600 hover:text-blue-800'
-                  }`}
-                >
-                  <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className={`text-center py-14 px-6 rounded-2xl border ${
+          isDark ? 'border-white/10 bg-white/5 text-slate-400' : 'border-slate-200 bg-slate-50 text-slate-600'
+        }`}>
+          <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-60 text-blue-500" />
+          <p className="text-base font-semibold text-slate-800 dark:text-slate-200">Belum Ada Artikel Dipublikasikan</p>
+          <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+            Artikel baru dapat dibuat, ditulis, dan dikelola langsung melalui Keystatic CMS.
+          </p>
+        </div>
+      )}
 
     </section>
   );

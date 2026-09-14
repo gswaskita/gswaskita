@@ -1974,122 +1974,125 @@ export const BlogPage: React.FC<BlogPageProps> = ({
       </div>
 
       {/* Collection Grid of Articles */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 min-w-0 w-full">
-        {filteredPosts.map((post) => {
-          const words = calculateWordCount(post);
-          const readTimeStr = formatReadingTime(post);
+      {filteredPosts.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 min-w-0 w-full">
+          {filteredPosts.map((post) => {
+            const words = calculateWordCount(post);
+            const readTimeStr = formatReadingTime(post);
 
-          return (
-            <div
-              key={post.slug}
-              className={`p-4 sm:p-6 rounded-2xl border flex flex-col justify-between transition-all hover:shadow-2xl hover:-translate-y-1 group min-w-0 w-full overflow-hidden ${
-                isDark 
-                  ? 'bg-white/10 backdrop-blur-md border-white/20 text-white hover:border-white/40' 
-                  : 'bg-white border-slate-200 text-slate-900 shadow-md hover:border-blue-300'
-              }`}
-            >
-              <div className="space-y-3 sm:space-y-3.5 min-w-0">
-                {/* Landscape Visual Card Thumbnail */}
-                <LandscapeBlogVisual
-                  post={post}
-                  theme={theme}
-                  variant="card"
-                  onClick={() => {
-                    setSelectedSlug(post.slug);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                />
-
-                {/* Category & Date */}
-                <div className="flex items-center justify-between gap-2 flex-wrap min-w-0">
-                  <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
-                    isDark 
-                      ? 'bg-blue-950/60 border-blue-400/30 text-blue-300' 
-                      : 'bg-blue-50 border-blue-200 text-blue-700'
-                  }`}>
-                    {post.category}
-                  </span>
-
-                  <span className="text-[11px] font-mono text-slate-400">
-                    {post.date}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <a
-                  href={`/blog/${post.slug}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSelectedSlug(post.slug);
-                    if (typeof window !== 'undefined') {
-                      window.history.pushState({}, '', `/blog/${post.slug}`);
+            return (
+              <div
+                key={post.slug}
+                className={`p-4 sm:p-6 rounded-2xl border flex flex-col justify-between transition-all hover:shadow-2xl hover:-translate-y-1 group min-w-0 w-full overflow-hidden ${
+                  isDark 
+                    ? 'bg-white/10 backdrop-blur-md border-white/20 text-white hover:border-white/40' 
+                    : 'bg-white border-slate-200 text-slate-900 shadow-md hover:border-blue-300'
+                }`}
+              >
+                <div className="space-y-3 sm:space-y-3.5 min-w-0">
+                  {/* Landscape Visual Card Thumbnail */}
+                  <LandscapeBlogVisual
+                    post={post}
+                    theme={theme}
+                    variant="card"
+                    onClick={() => {
+                      setSelectedSlug(post.slug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                  }}
-                  className="block group-hover:text-blue-500 transition-colors"
-                >
-                  <h3 className="text-base sm:text-xl font-bold font-editorial-serif leading-snug break-words">
+                    }}
+                  />
+
+                  {/* Category & Date */}
+                  <div className="flex items-center justify-between gap-2 flex-wrap min-w-0">
+                    <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
+                      isDark 
+                        ? 'bg-blue-950/60 border-blue-400/30 text-blue-300' 
+                        : 'bg-blue-50 border-blue-200 text-blue-700'
+                    }`}>
+                      {post.category}
+                    </span>
+
+                    <span className="text-[11px] font-mono text-slate-400">
+                      {post.date}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 
+                    onClick={() => {
+                      setSelectedSlug(post.slug);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="text-lg sm:text-xl font-bold leading-snug cursor-pointer group-hover:text-blue-500 transition-colors line-clamp-2"
+                  >
                     {post.title}
                   </h3>
-                </a>
 
-                {/* Excerpt */}
-                <p className={`text-xs leading-relaxed line-clamp-3 break-words ${
-                  isDark ? 'text-slate-300' : 'text-slate-600'
-                }`}>
-                  {post.excerpt}
-                </p>
+                  {/* Excerpt */}
+                  <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300 line-clamp-3">
+                    {post.excerpt}
+                  </p>
 
-                {/* Tags */}
-                {post.tags && (
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {post.tags.slice(0, 3).map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Bottom Meta & Click to Single Article */}
-              <div className={`pt-3 sm:pt-4 mt-4 sm:mt-5 border-t flex flex-wrap items-center justify-between gap-2 ${
-                isDark ? 'border-white/10' : 'border-slate-200'
-              }`}>
-                {/* Metrics */}
-                <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] font-mono text-slate-400">
-                  <span className="flex items-center gap-1 text-blue-400">
-                    <Clock className="w-3 h-3 shrink-0" />
-                    <span>{readTimeStr}</span>
-                  </span>
-                  <span>&bull;</span>
-                  <span>{words} words</span>
+                  {/* Tags */}
+                  {post.tags && (
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {post.tags.slice(0, 3).map((tag, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
-                <a
-                  href={`/blog/${post.slug}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSelectedSlug(post.slug);
-                    if (typeof window !== 'undefined') {
-                      window.history.pushState({}, '', `/blog/${post.slug}`);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                  }}
-                  className="text-xs font-bold text-blue-500 hover:text-blue-400 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform shrink-0"
-                >
-                  <span>Read Full Note</span>
-                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
-                </a>
-              </div>
+                {/* Bottom Meta & Click to Single Article */}
+                <div className={`pt-3 sm:pt-4 mt-4 sm:mt-5 border-t flex flex-wrap items-center justify-between gap-2 ${
+                  isDark ? 'border-white/10' : 'border-slate-200'
+                }`}>
+                  {/* Metrics */}
+                  <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] font-mono text-slate-400">
+                    <span className="flex items-center gap-1 text-blue-400">
+                      <Clock className="w-3 h-3 shrink-0" />
+                      <span>{readTimeStr}</span>
+                    </span>
+                    <span>&bull;</span>
+                    <span>{words} words</span>
+                  </div>
 
-            </div>
-          );
-        })}
-      </div>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSelectedSlug(post.slug);
+                      if (typeof window !== 'undefined') {
+                        window.history.pushState({}, '', `/blog/${post.slug}`);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                    }}
+                    className="text-xs font-bold text-blue-500 hover:text-blue-400 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform shrink-0"
+                  >
+                    <span>Read Full Note</span>
+                    <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                  </a>
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className={`text-center py-20 px-6 rounded-2xl border ${
+          isDark ? 'border-white/10 bg-white/5 text-slate-400' : 'border-slate-200 bg-slate-50 text-slate-600'
+        }`}>
+          <BookOpen className="w-12 h-12 mx-auto mb-3 opacity-50 text-blue-500" />
+          <h3 className="text-lg font-semibold text-slate-800 dark:text-white">Belum Ada Artikel Dipublikasikan</h3>
+          <p className="text-sm text-slate-500 max-w-md mx-auto mt-1">
+            Artikel baru dapat dibuat, ditulis, dan dikelola langsung melalui dasbor Keystatic CMS.
+          </p>
+        </div>
+      )}
 
       {/* Integrated Academic Login Modal */}
       <LoginModal
