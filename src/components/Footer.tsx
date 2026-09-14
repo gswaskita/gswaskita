@@ -92,7 +92,7 @@ export const Footer: React.FC<FooterProps> = ({
                   }`}
                 >
                   <Database className="w-3.5 h-3.5 text-blue-500" />
-                  <span>Keystatic CMS Editor</span>
+                  <span>Dashboard ADAScholar</span>
                 </a>
               ) : (
                 <button

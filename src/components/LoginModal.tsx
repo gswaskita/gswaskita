@@ -132,7 +132,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
             <ShieldCheck className="w-5 h-5 text-blue-500" />
             <div>
               <h2 className="text-base font-bold">Academic Portal Authentication</h2>
-              <p className="text-[11px] text-slate-400">Keystatic CMS Management &amp; Scholarly Commenting</p>
+              <p className="text-[11px] text-slate-400">Dashboard ADAScholar &amp; Scholarly Commenting</p>
             </div>
           </div>
 
@@ -234,7 +234,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                       <span>Admin CMS Access:</span>
                     </p>
                     <p className="mt-1 text-[11px] opacity-80">
-                      Sign in as Gautama to modify all website data, scholar metrics, books, articles, blog posts, and photo gallery via Keystatic CMS Studio.
+                      Sign in as Gautama to modify all website data, scholar metrics, books, articles, blog posts, and photo gallery via Dashboard ADAScholar.
                     </p>
                   </div>
 

@@ -2089,7 +2089,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           <BookOpen className="w-12 h-12 mx-auto mb-3 opacity-50 text-blue-500" />
           <h3 className="text-lg font-semibold text-slate-800 dark:text-white">Belum Ada Artikel Dipublikasikan</h3>
           <p className="text-sm text-slate-500 max-w-md mx-auto mt-1">
-            Artikel baru dapat dibuat, ditulis, dan dikelola langsung melalui dasbor Keystatic CMS.
+            Artikel baru dapat dibuat, ditulis, dan dikelola langsung melalui Dashboard ADAScholar.
           </p>
         </div>
       )}

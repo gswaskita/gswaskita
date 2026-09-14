@@ -164,7 +164,7 @@ export const BlogSummarySection: React.FC<BlogSummarySectionProps> = ({
           <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-60 text-blue-500" />
           <p className="text-base font-semibold text-slate-800 dark:text-slate-200">Belum Ada Artikel Dipublikasikan</p>
           <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
-            Artikel baru dapat dibuat, ditulis, dan dikelola langsung melalui Keystatic CMS.
+            Artikel baru dapat dibuat, ditulis, dan dikelola langsung melalui Dashboard ADAScholar.
           </p>
         </div>
       )}
