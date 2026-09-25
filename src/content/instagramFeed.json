@@ -35,6 +35,16 @@
       "date": "10 November 2025",
       "likes": 219,
       "comments": 0
+    },
+    {
+      "id": "3",
+      "caption": "International Lecture in Rajamangala University Thailand Strategic Management in Digital Era",
+      "imageUrl": "/static/images/instagram/posts/2/imageUrl.png",
+      "postUrl": "https://www.instagram.com/p/DOiUeitk0Jc/?stkn=eDA3MXB2NXM3djB2",
+      "date": "13 September 2025",
+      "likes": 2780,
+      "comments": 2,
+      "category": "International Lecture"
     }
   ]
 }
