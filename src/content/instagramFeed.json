@@ -46,6 +46,16 @@
       "likes": 2780,
       "comments": 2,
       "category": "International Lecture"
+    },
+    {
+      "id": "4",
+      "caption": "Keynote Speaker on Seminar with State Electricity Company (Perusahaan Listrik Negara / PLN)",
+      "imageUrl": "/static/images/instagram/posts/3/imageUrl.jpeg",
+      "postUrl": "https://www.instagram.com/p/C-XLFXATuMf/?stkn=NWVmZnVvdnZ6em1q",
+      "date": "7 Agustus 2024",
+      "likes": 1514,
+      "comments": 0,
+      "category": "State Seminar"
     }
   ]
 }
