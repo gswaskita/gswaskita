@@ -26,6 +26,15 @@
       "likes": 10,
       "comments": 10,
       "category": "Conference"
+    },
+    {
+      "id": "2",
+      "caption": "Keynote speaker on International Seminar in Universitas Islam Negeri Sayyid Ali Rahmatullah of Indonesia with Universiti Teknologi Mara of Malaysia",
+      "imageUrl": "/static/images/instagram/posts/1/imageUrl.jpg",
+      "postUrl": "https://www.instagram.com/p/DQ4Wa-fkrYV/?stkn=MXRhazU3Z25hNTl2ZA==",
+      "date": "10 November 2025",
+      "likes": 219,
+      "comments": 0
     }
   ]
 }
