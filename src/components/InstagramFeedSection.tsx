@@ -34,6 +34,185 @@ export const InstagramVerifiedBadge: React.FC<{ className?: string }> = ({
   </svg>
 );
 
+export const InstagramPostCard: React.FC<{
+  post: InstagramPost;
+  isDark: boolean;
+  onClick: () => void;
+}> = ({ post, isDark, onClick }) => (
+  <div
+    onClick={onClick}
+    className={`group rounded-2xl overflow-hidden border cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col relative aspect-[4/5] ${
+      isDark ? 'bg-slate-900/80 border-white/15' : 'bg-white border-slate-200 shadow-sm'
+    }`}
+  >
+    {/* 4:5 Post Image */}
+    <img
+      src={post.image || post.imageUrl}
+      alt={post.caption.slice(0, 50)}
+      referrerPolicy="no-referrer"
+      loading="lazy"
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+
+    {/* Top Category Badge */}
+    {post.category && (
+      <div className="absolute top-2.5 left-2.5 z-10">
+        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-black/75 backdrop-blur-md text-white border border-white/20">
+          {post.category}
+        </span>
+      </div>
+    )}
+
+    {/* Top Right Instagram Icon */}
+    <div className="absolute top-2.5 right-2.5 z-10 p-1.5 rounded-full bg-black/75 backdrop-blur-md text-white border border-white/20">
+      <Instagram className="w-3 h-3" />
+    </div>
+
+    {/* Hover Dark Overlay with Engagement Metrics & Caption */}
+    <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-between text-white z-20">
+      {/* Top Meta info */}
+      <div className="flex items-center justify-between text-[11px] font-mono text-slate-300">
+        <span className="flex items-center gap-1">
+          <Calendar className="w-3 h-3 text-rose-400" />
+          <span>{post.date}</span>
+        </span>
+        <span className="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[9px] font-bold uppercase">
+          Instagram
+        </span>
+      </div>
+
+      {/* Caption Excerpt */}
+      <p className="text-xs leading-relaxed text-slate-200 line-clamp-4 font-light">
+        {post.caption}
+      </p>
+
+      {/* Bottom Likes & Comments Count */}
+      <div className="pt-2 border-t border-white/15 flex items-center justify-between text-xs font-mono">
+        <div className="flex items-center gap-3">
+          <span className="flex items-center gap-1 text-rose-400 font-bold">
+            <Heart className="w-3.5 h-3.5 fill-rose-400" />
+            <span>{post.likes}</span>
+          </span>
+          <span className="flex items-center gap-1 text-blue-300 font-bold">
+            <MessageCircle className="w-3.5 h-3.5" />
+            <span>{post.comments}</span>
+          </span>
+        </div>
+        <span className="text-[11px] text-slate-400 group-hover:text-white flex items-center gap-0.5">
+          <span>View</span>
+          <span>&rarr;</span>
+        </span>
+      </div>
+    </div>
+  </div>
+);
+
+export const InstagramPostDetailModal: React.FC<{
+  activePost: InstagramPost | null;
+  onClose: () => void;
+  isDark: boolean;
+  feed: InstagramFeedData;
+}> = ({ activePost, onClose, isDark, feed }) => {
+  if (!activePost) return null;
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
+      onClick={onClose}
+    >
+      <div
+        className={`max-w-3xl w-full rounded-3xl overflow-hidden border shadow-2xl relative flex flex-col md:flex-row max-h-[90vh] ${
+          isDark ? 'bg-[#0B1528] border-white/20 text-white' : 'bg-white border-slate-300 text-slate-900'
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          aria-label="Close modal"
+          className="absolute top-4 right-4 z-30 p-2 rounded-full bg-black/60 hover:bg-black/80 text-white border border-white/20 transition-all hover:scale-105"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Left Image View */}
+        <div className="md:w-1/2 bg-slate-950 flex items-center justify-center relative min-h-[260px] md:min-h-full">
+          <img
+            src={activePost.image || activePost.imageUrl}
+            alt={activePost.caption}
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover max-h-[500px]"
+          />
+          <div className="absolute bottom-3 left-3">
+            <span className="px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-black/75 text-white backdrop-blur-md border border-white/20">
+              {activePost.category || 'Instagram Post'}
+            </span>
+          </div>
+        </div>
+
+        {/* Right Details & Content */}
+        <div className="md:w-1/2 p-6 flex flex-col justify-between space-y-4 overflow-y-auto">
+          {/* Profile Header on Modal */}
+          <div className="flex items-center gap-3 pb-3 border-b border-slate-200 dark:border-white/10">
+            <div className="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]">
+              <img
+                src={feed.avatarUrl}
+                alt={feed.displayName}
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <div className="text-xs">
+              <div className="font-bold flex items-center gap-1">
+                <span>@{feed.username}</span>
+                <InstagramVerifiedBadge className="w-3.5 h-3.5" />
+              </div>
+              <span className="text-slate-400 text-[11px]">{activePost.date}</span>
+            </div>
+          </div>
+
+          {/* Full Caption */}
+          <div className="space-y-3 flex-1">
+            <p className={`text-xs sm:text-sm leading-relaxed whitespace-pre-line ${
+              isDark ? 'text-slate-200' : 'text-slate-700'
+            }`}>
+              {activePost.caption}
+            </p>
+          </div>
+
+          {/* Engagement Stats & CTA Action */}
+          <div className="space-y-4 pt-4 border-t border-slate-200 dark:border-white/10">
+            <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+              <div className="flex items-center gap-4">
+                <span className="flex items-center gap-1.5 text-rose-500 font-bold">
+                  <Heart className="w-4 h-4 fill-rose-500" />
+                  <span>{activePost.likes} likes</span>
+                </span>
+                <span className="flex items-center gap-1.5 text-blue-400 font-bold">
+                  <MessageCircle className="w-4 h-4" />
+                  <span>{activePost.comments} comments</span>
+                </span>
+              </div>
+              <span>{activePost.date}</span>
+            </div>
+
+            <a
+              href={activePost.postUrl || feed.profileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-white bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-95 transition-all shadow-md hover:scale-[1.02]"
+            >
+              <Instagram className="w-4 h-4" />
+              <span>View Original Post on Instagram (@{feed.username})</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
 interface InstagramFeedSectionProps {
   feedData?: InstagramFeedData;
   profile?: AuthorProfile;
@@ -191,178 +370,25 @@ export const InstagramFeedSection: React.FC<InstagramFeedSectionProps> = ({
         </a>
       </div>
 
-      {/* Instagram Posts Grid */}
+      {/* Instagram Posts Grid (4:5 Aspect Ratio) */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {feed.posts.map((post) => (
-          <div
+          <InstagramPostCard
             key={post.id}
+            post={post}
+            isDark={isDark}
             onClick={() => setActivePost(post)}
-            className={`group rounded-2xl overflow-hidden border cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col relative aspect-square ${
-              isDark ? 'bg-slate-900/80 border-white/15' : 'bg-white border-slate-200 shadow-sm'
-            }`}
-          >
-            {/* Square Post Image */}
-            <img
-              src={post.imageUrl}
-              alt={post.caption.slice(0, 50)}
-              referrerPolicy="no-referrer"
-              loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-
-            {/* Top Category Badge */}
-            {post.category && (
-              <div className="absolute top-2.5 left-2.5 z-10">
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-black/75 backdrop-blur-md text-white border border-white/20">
-                  {post.category}
-                </span>
-              </div>
-            )}
-
-            {/* Top Right Instagram Icon */}
-            <div className="absolute top-2.5 right-2.5 z-10 p-1.5 rounded-full bg-black/75 backdrop-blur-md text-white border border-white/20">
-              <Instagram className="w-3 h-3" />
-            </div>
-
-            {/* Hover Dark Overlay with Engagement Metrics & Caption */}
-            <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-between text-white z-20">
-              {/* Top Meta info */}
-              <div className="flex items-center justify-between text-[11px] font-mono text-slate-300">
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3 text-rose-400" />
-                  <span>{post.date}</span>
-                </span>
-                <span className="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[9px] font-bold uppercase">
-                  Instagram
-                </span>
-              </div>
-
-              {/* Caption Excerpt */}
-              <p className="text-xs leading-relaxed text-slate-200 line-clamp-4 font-light">
-                {post.caption}
-              </p>
-
-              {/* Bottom Likes & Comments Count */}
-              <div className="pt-2 border-t border-white/15 flex items-center justify-between text-xs font-mono">
-                <div className="flex items-center gap-3">
-                  <span className="flex items-center gap-1 text-rose-400 font-bold">
-                    <Heart className="w-3.5 h-3.5 fill-rose-400" />
-                    <span>{post.likes}</span>
-                  </span>
-                  <span className="flex items-center gap-1 text-blue-300 font-bold">
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    <span>{post.comments}</span>
-                  </span>
-                </div>
-                <span className="text-[11px] text-slate-400 group-hover:text-white flex items-center gap-0.5">
-                  <span>View</span>
-                  <span>&rarr;</span>
-                </span>
-              </div>
-            </div>
-          </div>
+          />
         ))}
       </div>
 
       {/* Instagram Post Detail Modal */}
-      {activePost && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn"
-          onClick={() => setActivePost(null)}
-        >
-          <div
-            className={`max-w-3xl w-full rounded-3xl overflow-hidden border shadow-2xl relative flex flex-col md:flex-row max-h-[90vh] ${
-              isDark ? 'bg-[#0B1528] border-white/20 text-white' : 'bg-white border-slate-300 text-slate-900'
-            }`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setActivePost(null)}
-              aria-label="Close modal"
-              className="absolute top-4 right-4 z-30 p-2 rounded-full bg-black/60 hover:bg-black/80 text-white border border-white/20 transition-all hover:scale-105"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Left Image View */}
-            <div className="md:w-1/2 bg-slate-950 flex items-center justify-center relative min-h-[260px] md:min-h-full">
-              <img
-                src={activePost.imageUrl}
-                alt={activePost.caption}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover max-h-[500px]"
-              />
-              <div className="absolute bottom-3 left-3">
-                <span className="px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-black/75 text-white backdrop-blur-md border border-white/20">
-                  {activePost.category || 'Instagram Post'}
-                </span>
-              </div>
-            </div>
-
-            {/* Right Details & Content */}
-            <div className="md:w-1/2 p-6 flex flex-col justify-between space-y-4 overflow-y-auto">
-              
-              {/* Profile Header on Modal */}
-              <div className="flex items-center gap-3 pb-3 border-b border-slate-200 dark:border-white/10">
-                <div className="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]">
-                  <img
-                    src={feed.avatarUrl}
-                    alt={feed.displayName}
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                </div>
-                <div className="text-xs">
-                  <div className="font-bold flex items-center gap-1">
-                    <span>@{feed.username}</span>
-                    <InstagramVerifiedBadge className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="text-slate-400 text-[11px]">{activePost.date}</span>
-                </div>
-              </div>
-
-              {/* Full Caption */}
-              <div className="space-y-3 flex-1">
-                <p className={`text-xs sm:text-sm leading-relaxed whitespace-pre-line ${
-                  isDark ? 'text-slate-200' : 'text-slate-700'
-                }`}>
-                  {activePost.caption}
-                </p>
-              </div>
-
-              {/* Engagement Stats & CTA Action */}
-              <div className="space-y-4 pt-4 border-t border-slate-200 dark:border-white/10">
-                <div className="flex items-center justify-between text-xs font-mono text-slate-400">
-                  <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-1.5 text-rose-500 font-bold">
-                      <Heart className="w-4 h-4 fill-rose-500" />
-                      <span>{activePost.likes} likes</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 text-blue-400 font-bold">
-                      <MessageCircle className="w-4 h-4" />
-                      <span>{activePost.comments} comments</span>
-                    </span>
-                  </div>
-                  <span>{activePost.date}</span>
-                </div>
-
-                <a
-                  href={activePost.postUrl || feed.profileUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-white bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-95 transition-all shadow-md hover:scale-[1.02]"
-                >
-                  <Instagram className="w-4 h-4" />
-                  <span>View Original Post on Instagram (@{feed.username})</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      )}
+      <InstagramPostDetailModal
+        activePost={activePost}
+        onClose={() => setActivePost(null)}
+        isDark={isDark}
+        feed={feed}
+      />
 
       {/* Bottom Instagram Connect CTA Banner */}
       <div className={`rounded-2xl p-6 sm:p-8 border flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left ${
@@ -370,7 +396,7 @@ export const InstagramFeedSection: React.FC<InstagramFeedSectionProps> = ({
       }`}>
         <div className="space-y-1 max-w-xl">
           <h3 className={`text-base sm:text-lg font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            {feed.bannerTitle || 'Follow the Research Journey & Doctoral Dispatches on Instagram'}
+            {feed.bannerTitle || 'Follow the Research Journey on Instagram'}
           </h3>
           <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
             {feed.bannerSubtitle || `Receive regular updates on SME operations fieldwork, international conference proceedings, and daily somatic discipline routines directly from @${feed.username}.`}

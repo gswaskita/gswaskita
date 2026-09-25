@@ -12,10 +12,10 @@ import {
   Instagram,
   ExternalLink
 } from 'lucide-react';
-import type { GalleryItem, ThemeMode, PageId, PageContentData, InstagramFeedData } from '../types';
+import type { GalleryItem, ThemeMode, PageId, PageContentData, InstagramFeedData, InstagramPost } from '../types';
 import { INITIAL_PORTFOLIO_DATA } from '../data/portfolioData';
 import { useTheme } from '../utils/useTheme';
-import { InstagramVerifiedBadge } from './InstagramFeedSection';
+import { InstagramVerifiedBadge, InstagramPostCard, InstagramPostDetailModal } from './InstagramFeedSection';
 
 interface GallerySectionProps {
   items?: GalleryItem[];
@@ -37,6 +37,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
   const pageContent = propPageContent || INITIAL_PORTFOLIO_DATA.pageContent!;
   const instagramFeed = propInstagramFeed || INITIAL_PORTFOLIO_DATA.instagramFeed!;
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const [activeIgPost, setActiveIgPost] = useState<InstagramPost | null>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const theme = useTheme(propTheme);
   const isDark = theme === 'dark';
@@ -219,9 +220,9 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           isDark ? 'border-white/10 bg-white/5 text-slate-400' : 'border-slate-200 bg-slate-50 text-slate-600'
         }`}>
           <Camera className="w-10 h-10 mx-auto mb-3 opacity-60 text-blue-500" />
-          <p className="text-base font-semibold text-slate-800 dark:text-slate-200">Belum Ada Foto Galeri Dipublikasikan</p>
+          <p className="text-base font-semibold text-slate-800 dark:text-slate-200">No Gallery Photos Published Yet</p>
           <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
-            Dokumentasi foto kegiatan akademik dan riset dapat diunggah dan dikelola langsung melalui Dashboard ADAScholar.
+            Academic and research activity photos can be uploaded and managed directly via Dashboard ADAScholar.
           </p>
         </div>
       )}
@@ -267,6 +268,46 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           </a>
         </div>
       </div>
+
+      {/* Instagram Posts Grid on Homepage (4:5 Aspect Ratio) */}
+      {instagramFeed.posts && instagramFeed.posts.length > 0 && (
+        <div className="mt-8 space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className={`text-sm sm:text-base font-semibold flex items-center gap-2 ${
+              isDark ? 'text-white' : 'text-slate-900'
+            }`}>
+              <Instagram className="w-4 h-4 text-rose-500" />
+              <span>Latest Instagram Feed &amp; Somatic Updates</span>
+            </h3>
+            <a
+              href="/gallery"
+              className="text-xs font-semibold text-rose-500 hover:text-rose-600 hover:underline flex items-center gap-1"
+            >
+              <span>View All ({instagramFeed.posts.length})</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {(instagramFeed.posts || []).slice(0, 8).map((post) => (
+              <InstagramPostCard
+                key={post.id}
+                post={post}
+                isDark={isDark}
+                onClick={() => setActiveIgPost(post)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Instagram Post Detail Modal */}
+      <InstagramPostDetailModal
+        activePost={activeIgPost}
+        onClose={() => setActiveIgPost(null)}
+        isDark={isDark}
+        feed={instagramFeed}
+      />
 
       {/* Interactive Lightbox Slider Modal */}
       {activeItem && activeIdx !== null && (

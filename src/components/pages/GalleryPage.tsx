@@ -339,9 +339,9 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
               isDark ? 'border-white/10 bg-white/5 text-slate-400' : 'border-slate-200 bg-slate-50 text-slate-600'
             }`}>
               <Camera className="w-10 h-10 mx-auto mb-3 opacity-60 text-blue-500" />
-              <p className="text-base font-semibold text-slate-800 dark:text-slate-200">Belum Ada Foto Galeri Dipublikasikan</p>
+              <p className="text-base font-semibold text-slate-800 dark:text-slate-200">No Gallery Photos Published Yet</p>
               <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
-                Dokumentasi foto kegiatan akademik dan riset dapat diunggah dan dikelola langsung melalui Dashboard ADAScholar.
+                Academic and research activity photos can be uploaded and managed directly via Dashboard ADAScholar.
               </p>
             </div>
           )}

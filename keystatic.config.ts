@@ -866,7 +866,16 @@ export default config({
           fields.object({
             id: fields.text({ label: 'Post ID' }),
             caption: fields.text({ label: 'Caption', multiline: true }),
-            imageUrl: fields.text({ label: 'Image URL' }),
+            image: fields.image({
+              label: 'Upload Gambar (Upload Foto Postingan)',
+              description: 'Unggah file gambar postingan Instagram (tersimpan di public/static/images/instagram/)',
+              directory: 'public/static/images/instagram',
+              publicPath: '/static/images/instagram/',
+            }),
+            imageUrl: fields.text({
+              label: 'Atau Image URL Eksternal (Opsional)',
+              description: 'Gunakan jika ingin menggunakan link URL gambar online tanpa upload file',
+            }),
             postUrl: fields.text({ label: 'Instagram Post URL' }),
             date: fields.text({ label: 'Date / Relative Time' }),
             likes: fields.integer({ label: 'Likes Count' }),
@@ -1125,7 +1134,8 @@ export default config({
           defaultValue: 'Conferences',
         }),
         imageUrl: fields.image({
-          label: 'Photo Image',
+          label: 'Upload Gambar (Photo Image)',
+          description: 'Unggah file foto dokumentasi kegiatan (tersimpan di public/static/images/gallery/)',
           directory: 'public/static/images/gallery',
           publicPath: '/static/images/gallery/',
         }),

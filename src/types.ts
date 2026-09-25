@@ -385,6 +385,7 @@ export interface InstagramPost {
   id: string;
   caption: string;
   imageUrl: string;
+  image?: string | null;
   postUrl: string;
   date: string;
   likes: number;

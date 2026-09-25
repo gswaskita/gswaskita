@@ -586,7 +586,10 @@ export async function getPortfolioData(): Promise<PortfolioDataState> {
           ...instagramFeedEntry,
           avatarUrl: rawIgAvatar,
           posts: Array.isArray(instagramFeedEntry.posts)
-            ? instagramFeedEntry.posts.map((p: any) => ({ ...p }))
+            ? instagramFeedEntry.posts.map((p: any) => ({
+                ...p,
+                imageUrl: p.image || p.imageUrl || '',
+              }))
             : INITIAL_PORTFOLIO_DATA.instagramFeed?.posts || [],
         } as InstagramFeedData)
       : ({
