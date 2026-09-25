@@ -19,13 +19,13 @@
   "posts": [
     {
       "id": "1",
-      "caption": "yeah",
+      "caption": "National Seminar in Universitas Tulungagung. Future of Business: AI, Digital Economy and The Next Generation of Entrepreneurs.",
       "imageUrl": "/static/images/instagram/posts/0/imageUrl.jpg",
       "postUrl": "https://www.instagram.com/p/DdjqX8RICsg/",
       "date": "12 September 2026",
       "likes": 10,
       "comments": 10,
-      "category": "Conference"
+      "category": "Seminar"
     },
     {
       "id": "2",
