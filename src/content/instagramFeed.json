@@ -20,10 +20,12 @@
     {
       "id": "1",
       "caption": "Keynote Speaker in National Seminar \"Future of Business: AI, Digital Economy and The Next Generation of Entrepreneurs\"",
+      "imageUrl": "/static/images/gallery/national-seminar-future-of-business-ai-digital-economy-and-the-next-generation-of-entrepreneurs/imageUrl.jpeg",
       "postUrl": "https://www.instagram.com/p/DdjqX8RICsg/?stkn=MTA2M3dtaXc2cXVneg==",
       "date": "21 September 2026",
       "likes": 528,
-      "comments": 8
+      "comments": 8,
+      "category": "National Seminar"
     }
   ]
 }
