@@ -1053,7 +1053,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
     const noteText = profile.authorNoteText || 'Methodological empirical reflections for doctoral supervision in Operations Management.';
 
     return (
-      <div className="py-6 sm:py-10 px-3.5 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6 sm:space-y-10 animate-fadeIn w-full max-w-full min-w-0 overflow-x-hidden">
+      <div className="py-6 sm:py-10 px-3.5 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6 sm:space-y-10 animate-fadeIn w-full max-w-full min-w-0 overflow-x-clip">
         
         {/* Top Breadcrumb Bar */}
         <div className="flex flex-wrap items-center justify-between gap-2.5 border-b pb-4 border-slate-300 dark:border-white/10 w-full min-w-0">
@@ -1136,7 +1136,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         </header>
 
         {/* Unified 12-Column Article & Sidebar Grid (Artikel Tepat di Bawah Foto Tanpa Jarak) */}
-        <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start w-full min-w-0 max-w-full">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch w-full min-w-0 max-w-full">
           
           {/* Left Column (8 Cols): Featured Visual & Article Content Tepat di Bawahnya */}
           <main className="lg:col-span-8 space-y-5 sm:space-y-6 min-w-0 max-w-full w-full">
@@ -1808,7 +1808,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             </div>
 
             {/* 3. Table of Contents (ToC) - Melayang Sticky di Desktop (lg:sticky), Static di Mobile */}
-            <div className={`lg:sticky lg:top-24 static z-20 p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-2 shadow-2xl space-y-3 sm:space-y-4 transition-all min-w-0 max-w-full ${
+            <div className={`relative lg:sticky lg:top-24 z-20 p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-2 shadow-2xl space-y-3 sm:space-y-4 transition-all min-w-0 max-w-full ${
               isDark 
                 ? 'bg-[#0e2038]/95 backdrop-blur-xl border-blue-400/25 text-white shadow-blue-950/40' 
                 : 'bg-white/95 backdrop-blur-xl border-blue-200 text-slate-900 shadow-xl shadow-slate-200/60'
