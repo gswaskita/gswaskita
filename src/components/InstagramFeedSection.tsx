@@ -47,7 +47,7 @@ export const InstagramPostCard: React.FC<{
   >
     {/* 4:5 Post Image */}
     <img
-      src={post.image || post.imageUrl}
+      src={post.imageUrl || (post as any).image}
       alt={post.caption.slice(0, 50)}
       referrerPolicy="no-referrer"
       loading="lazy"
@@ -137,7 +137,7 @@ export const InstagramPostDetailModal: React.FC<{
         {/* Left Image View */}
         <div className="md:w-1/2 bg-slate-950 flex items-center justify-center relative min-h-[260px] md:min-h-full">
           <img
-            src={activePost.image || activePost.imageUrl}
+            src={activePost.imageUrl || (activePost as any).image}
             alt={activePost.caption}
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover max-h-[500px]"
