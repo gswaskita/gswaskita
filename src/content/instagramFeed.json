@@ -16,46 +16,5 @@
   "bannerTitle": "Follow the Research Journey & Doctoral Dispatches on Instagram",
   "bannerSubtitle": "Receive regular updates on SME operations fieldwork, international conference proceedings, and daily somatic discipline routines directly from @tamzkee.",
   "bannerCtaText": "Follow @tamzkee on Instagram",
-  "posts": [
-    {
-      "id": "ig-3",
-      "caption": "Morning Kyokushin dojo conditioning: the 'Osu' philosophy teaches perseverance under intense physical pressure. That same stamina and fortitude forms the cognitive foundation for tackling doctoral proposal revisions and peer reviews. #Kyokushin #Karate #Osu #SomaticDiscipline #PhDGrind",
-      "imageUrl": "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=800&q=80",
-      "postUrl": "https://www.instagram.com/tamzkee/",
-      "date": "1 week ago",
-      "likes": 189,
-      "comments": 22,
-      "category": "Somatic Discipline"
-    },
-    {
-      "id": "ig-4",
-      "caption": "Interactive Operations Management seminar this semester at Universitas Tulungagung. Guiding students through real-world supply chain resilience case studies and post-crisis lean operational mitigation. #Teaching #UNUBlitar #Blitar #OperationsManagement #HigherEd",
-      "imageUrl": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
-      "postUrl": "https://www.instagram.com/tamzkee/",
-      "date": "2 weeks ago",
-      "likes": 176,
-      "comments": 14,
-      "category": "Teaching"
-    },
-    {
-      "id": "ig-5",
-      "caption": "On-site mentoring for traditional market merchants adopting cloud cash-flow accounting and digital payment infrastructure. Digital inclusion must remain human-centric to eliminate adoption friction for grassroots micro-enterprises. #CommunityService #DigitalInclusion #MicroEnterprises #PublicEngagement",
-      "imageUrl": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
-      "postUrl": "https://www.instagram.com/tamzkee/",
-      "date": "3 weeks ago",
-      "likes": 198,
-      "comments": 31,
-      "category": "Community"
-    },
-    {
-      "id": "ig-6",
-      "caption": "Late evening academic manuscript synthesis and VOSviewer bibliometric term co-occurrence mapping for the UK PhD Application Dossier. Methodical progression, step by step. #PhDApplication #UKUniversities #LiteratureReview #VOSviewer #ResearchRoadmap",
-      "imageUrl": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
-      "postUrl": "https://www.instagram.com/tamzkee/",
-      "date": "1 month ago",
-      "likes": 234,
-      "comments": 36,
-      "category": "Doctoral Journey"
-    }
-  ]
+  "posts": []
 }
