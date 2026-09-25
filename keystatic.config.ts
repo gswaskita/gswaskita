@@ -859,22 +859,28 @@ export default config({
         followButtonText: fields.text({ label: 'Follow Button Text' }),
         dmButtonText: fields.text({ label: 'Direct Message Button Text' }),
         viewProfileText: fields.text({ label: 'View Profile Link Text' }),
-        bannerTitle: fields.text({ label: 'Bottom Banner Heading' }),
-        bannerSubtitle: fields.text({ label: 'Bottom Banner Subtitle', multiline: true }),
-        bannerCtaText: fields.text({ label: 'Bottom Banner Button Text' }),
+        bannerTitle: fields.text({
+          label: 'Banner Title (Judul Banner)',
+          description: 'Contoh: Follow the Research Journey on Instagram',
+        }),
+        bannerSubtitle: fields.text({
+          label: 'Banner Subtitle / Description (Deskripsi Banner)',
+          description: 'Contoh: Receive regular updates on SME operations fieldwork, international conference proceedings, and daily somatic discipline routines directly from @tamzkee.',
+          multiline: true,
+        }),
+        bannerCtaText: fields.text({
+          label: 'Banner Button Text (Teks Tombol / Link Follow)',
+          description: 'Contoh: Follow @tamzkee on Instagram',
+        }),
         posts: fields.array(
           fields.object({
             id: fields.text({ label: 'Post ID' }),
             caption: fields.text({ label: 'Caption', multiline: true }),
-            image: fields.image({
-              label: 'Upload Gambar (Upload Foto Postingan)',
+            imageUrl: fields.image({
+              label: 'Upload Gambar (Image URL)',
               description: 'Unggah file gambar postingan Instagram (tersimpan di public/static/images/instagram/)',
               directory: 'public/static/images/instagram',
               publicPath: '/static/images/instagram/',
-            }),
-            imageUrl: fields.text({
-              label: 'Atau Image URL Eksternal (Opsional)',
-              description: 'Gunakan jika ingin menggunakan link URL gambar online tanpa upload file',
             }),
             postUrl: fields.text({ label: 'Instagram Post URL' }),
             date: fields.text({ label: 'Date / Relative Time' }),

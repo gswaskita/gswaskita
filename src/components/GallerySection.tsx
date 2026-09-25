@@ -238,13 +238,13 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           <div>
             <div className="flex items-center gap-2 justify-center sm:justify-start">
               <span className={`text-sm font-bold flex items-center gap-1 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                <span>Connected to Instagram @{instagramFeed.username}</span>
+                <span>{instagramFeed.bannerTitle || `Connected to Instagram @${instagramFeed.username}`}</span>
                 <InstagramVerifiedBadge className="w-4 h-4" />
               </span>
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             </div>
             <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Follow real-time documentation of SME operations fieldwork, doctoral seminars, and daily somatic routines.
+              {instagramFeed.bannerSubtitle || 'Receive regular updates on SME operations fieldwork, international conference proceedings, and daily somatic discipline routines directly from @tamzkee.'}
             </p>
           </div>
         </div>
@@ -263,7 +263,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:scale-105 transition-all shadow-md shadow-rose-500/20"
           >
             <Instagram className="w-3.5 h-3.5" />
-            <span>Follow @{instagramFeed.username}</span>
+            <span>{instagramFeed.bannerCtaText || `Follow @${instagramFeed.username} on Instagram`}</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
