@@ -9,23 +9,12 @@
   "statusBadge": "Live Connected",
   "sectionBadge": "Live Instagram Social Feed",
   "sectionTitle": "Instagram Activity & Fieldwork Feed",
-  "sectionSubtitle": "Direct connection to @tamzkee's social media activity. Documentation of SME operations fieldwork, seminars, university lecturing, and other related activities.",
+  "sectionSubtitle": "Direct connection to @tamzkee's social media activity — documentation of SME operations fieldwork, doctoral seminars, university lecturing, and somatic endurance discipline.",
   "followButtonText": "Follow @tamzkee on Instagram",
   "dmButtonText": "Direct Message",
   "viewProfileText": "View complete profile @tamzkee",
-  "bannerTitle": "Follow the Research Journey on Instagram",
+  "bannerTitle": "Follow the Research Journey on Instagram Testing",
   "bannerSubtitle": "Receive regular updates on SME operations fieldwork, international conference proceedings, and daily somatic discipline routines directly from @tamzkee.",
   "bannerCtaText": "Follow @tamzkee on Instagram",
-  "posts": [
-    {
-      "id": "1",
-      "caption": "Keynote Speaker in National Seminar \"Future of Business: AI, Digital Economy and The Next Generation of Entrepreneurs\"",
-      "imageUrl": "/static/images/instagram/national-seminar-future-of-business.jpeg",
-      "postUrl": "https://www.instagram.com/p/DdjqX8RICsg/?stkn=MTA2M3dtaXc2cXVneg==",
-      "date": "21 September 2026",
-      "likes": 528,
-      "comments": 8,
-      "category": "National Seminar"
-    }
-  ]
+  "posts": []
 }
