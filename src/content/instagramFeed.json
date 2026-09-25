@@ -16,5 +16,16 @@
   "bannerTitle": "Follow the Research Journey on Instagram Testing",
   "bannerSubtitle": "Receive regular updates on SME operations fieldwork, international conference proceedings, and daily somatic discipline routines directly from @tamzkee.",
   "bannerCtaText": "Follow @tamzkee on Instagram",
-  "posts": []
+  "posts": [
+    {
+      "id": "1",
+      "caption": "yeah",
+      "imageUrl": "/static/images/instagram/posts/0/imageUrl.jpg",
+      "postUrl": "https://www.instagram.com/p/DdjqX8RICsg/",
+      "date": "12 September 2026",
+      "likes": 10,
+      "comments": 10,
+      "category": "Conference"
+    }
+  ]
 }
