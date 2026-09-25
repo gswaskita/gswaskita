@@ -274,67 +274,79 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
           </div>
 
           {/* Complete Gallery Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {filteredItems.map((photo, idx) => (
-          <div
-            key={photo.id}
-            onClick={() => setActivePhotoIdx(idx)}
-            className={`group rounded-2xl overflow-hidden border cursor-pointer transition-all hover:scale-[1.02] hover:shadow-2xl flex flex-col ${
-              isDark ? 'bg-white/10 border-white/20' : 'bg-white border-slate-200 shadow-md'
-            }`}
-          >
-            {/* Image Box - Full Box Filling */}
-            <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-800">
-              <img
-                src={photo.imageUrl}
-                alt={photo.title}
-                referrerPolicy="no-referrer"
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+          {filteredItems.length > 0 ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {filteredItems.map((photo, idx) => (
+                <div
+                  key={photo.id}
+                  onClick={() => setActivePhotoIdx(idx)}
+                  className={`group rounded-2xl overflow-hidden border cursor-pointer transition-all hover:scale-[1.02] hover:shadow-2xl flex flex-col ${
+                    isDark ? 'bg-white/10 border-white/20' : 'bg-white border-slate-200 shadow-md'
+                  }`}
+                >
+                  {/* Image Box - Full Box Filling */}
+                  <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-800">
+                    <img
+                      src={photo.imageUrl}
+                      alt={photo.title}
+                      referrerPolicy="no-referrer"
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
-              <div className="absolute top-3 left-3">
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-slate-900/80 backdrop-blur-md text-white border border-white/20">
-                  {photo.category}
-                </span>
-              </div>
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-slate-900/80 backdrop-blur-md text-white border border-white/20">
+                        {photo.category}
+                      </span>
+                    </div>
 
-              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-slate-900/80 text-white shadow">
-                <Maximize2 className="w-3.5 h-3.5" />
-              </div>
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-slate-900/80 text-white shadow">
+                      <Maximize2 className="w-3.5 h-3.5" />
+                    </div>
 
-              <div className="absolute bottom-3 left-3 right-3 text-white space-y-0.5">
-                <span className="text-[10px] font-mono text-blue-300 flex items-center gap-1">
-                  <MapPin className="w-3 h-3 shrink-0" />
-                  <span className="truncate">{photo.location}</span>
-                </span>
-                <h3 className="text-sm font-bold leading-tight line-clamp-1">
-                  {photo.title}
-                </h3>
-              </div>
+                    <div className="absolute bottom-3 left-3 right-3 text-white space-y-0.5">
+                      <span className="text-[10px] font-mono text-blue-300 flex items-center gap-1">
+                        <MapPin className="w-3 h-3 shrink-0" />
+                        <span className="truncate">{photo.location}</span>
+                      </span>
+                      <h3 className="text-sm font-bold leading-tight line-clamp-1">
+                        {photo.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className={`p-5 space-y-2 flex-1 flex flex-col justify-between ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                    <p className="text-xs leading-relaxed line-clamp-3">
+                      {photo.description}
+                    </p>
+                    <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-200 dark:border-white/10">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        <span>{photo.date}</span>
+                      </span>
+                      <span className="text-blue-500 font-semibold group-hover:underline flex items-center gap-1">
+                        <span>Slide &amp; Inspect</span>
+                        <span>&rarr;</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-
-            <div className={`p-5 space-y-2 flex-1 flex flex-col justify-between ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-              <p className="text-xs leading-relaxed line-clamp-3">
-                {photo.description}
+          ) : (
+            <div className={`text-center py-14 px-6 rounded-2xl border ${
+              isDark ? 'border-white/10 bg-white/5 text-slate-400' : 'border-slate-200 bg-slate-50 text-slate-600'
+            }`}>
+              <Camera className="w-10 h-10 mx-auto mb-3 opacity-60 text-blue-500" />
+              <p className="text-base font-semibold text-slate-800 dark:text-slate-200">Belum Ada Foto Galeri Dipublikasikan</p>
+              <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+                Dokumentasi foto kegiatan akademik dan riset dapat diunggah dan dikelola langsung melalui Dashboard ADAScholar.
               </p>
-              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-200 dark:border-white/10">
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  <span>{photo.date}</span>
-                </span>
-                <span className="text-blue-500 font-semibold group-hover:underline flex items-center gap-1">
-                  <span>Slide &amp; Inspect</span>
-                  <span>&rarr;</span>
-                </span>
-              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )}
+          )}
+        </div>
+      )}
 
       {/* Interactive Lightbox Slider Modal */}
       {activePhoto && activePhotoIdx !== null && (

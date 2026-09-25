@@ -471,7 +471,7 @@ export async function getPortfolioData(): Promise<PortfolioDataState> {
             description: e.description,
             imageUrl: e.imageUrl,
           }))
-      : INITIAL_PORTFOLIO_DATA.galleryItems;
+      : [];
 
     const martialArts: MartialArtItem[] = martialArtEntries.length > 0
       ? martialArtEntries

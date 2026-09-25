@@ -149,70 +149,82 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
       </div>
 
       {/* 6 Photos Grid on Homepage - Full box edge-to-edge presentation */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {homeItems.map((photo, idx) => (
-          <div
-            key={photo.id}
-            onClick={() => setActiveIdx(idx)}
-            className={`group rounded-2xl overflow-hidden border cursor-pointer transition-all hover:scale-[1.02] hover:shadow-2xl flex flex-col ${
-              isDark ? 'bg-white/10 border-white/20' : 'bg-white border-slate-200 shadow-md'
-            }`}
-          >
-            {/* Image Box - Full Box Filling */}
-            <div className="relative h-60 sm:h-64 w-full overflow-hidden bg-slate-800">
-              <img
-                src={photo.imageUrl}
-                alt={photo.title}
-                referrerPolicy="no-referrer"
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+      {homeItems.length > 0 ? (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {homeItems.map((photo, idx) => (
+            <div
+              key={photo.id}
+              onClick={() => setActiveIdx(idx)}
+              className={`group rounded-2xl overflow-hidden border cursor-pointer transition-all hover:scale-[1.02] hover:shadow-2xl flex flex-col ${
+                isDark ? 'bg-white/10 border-white/20' : 'bg-white border-slate-200 shadow-md'
+              }`}
+            >
+              {/* Image Box - Full Box Filling */}
+              <div className="relative h-60 sm:h-64 w-full overflow-hidden bg-slate-800">
+                <img
+                  src={photo.imageUrl}
+                  alt={photo.title}
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
-              {/* Category Pill */}
-              <div className="absolute top-3 left-3">
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-slate-900/80 backdrop-blur-md text-white border border-white/20">
-                  {photo.category}
-                </span>
+                {/* Category Pill */}
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-slate-900/80 backdrop-blur-md text-white border border-white/20">
+                    {photo.category}
+                  </span>
+                </div>
+
+                {/* Expand Trigger Icon */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-slate-900/80 text-white shadow">
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </div>
+
+                {/* Bottom Caption Overlay */}
+                <div className="absolute bottom-3 left-3 right-3 text-white space-y-0.5">
+                  <span className="text-[10px] font-mono text-blue-300 flex items-center gap-1">
+                    <MapPin className="w-3 h-3 shrink-0" />
+                    <span className="truncate">{photo.location}</span>
+                  </span>
+                  <h3 className="text-sm font-bold leading-tight line-clamp-1">
+                    {photo.title}
+                  </h3>
+                </div>
               </div>
 
-              {/* Expand Trigger Icon */}
-              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-slate-900/80 text-white shadow">
-                <Maximize2 className="w-3.5 h-3.5" />
+              {/* Description Card Foot */}
+              <div className={`p-4 space-y-2 flex-1 flex flex-col justify-between ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                <p className="text-xs line-clamp-2 leading-relaxed">
+                  {photo.description}
+                </p>
+                <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-200 dark:border-white/10">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    <span>{photo.date}</span>
+                  </span>
+                  <span className="text-blue-500 font-semibold group-hover:underline flex items-center gap-1">
+                    <span>Slide &amp; Expand</span>
+                    <span>&rarr;</span>
+                  </span>
+                </div>
               </div>
 
-              {/* Bottom Caption Overlay */}
-              <div className="absolute bottom-3 left-3 right-3 text-white space-y-0.5">
-                <span className="text-[10px] font-mono text-blue-300 flex items-center gap-1">
-                  <MapPin className="w-3 h-3 shrink-0" />
-                  <span className="truncate">{photo.location}</span>
-                </span>
-                <h3 className="text-sm font-bold leading-tight line-clamp-1">
-                  {photo.title}
-                </h3>
-              </div>
             </div>
-
-            {/* Description Card Foot */}
-            <div className={`p-4 space-y-2 flex-1 flex flex-col justify-between ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-              <p className="text-xs line-clamp-2 leading-relaxed">
-                {photo.description}
-              </p>
-              <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-200 dark:border-white/10">
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  <span>{photo.date}</span>
-                </span>
-                <span className="text-blue-500 font-semibold group-hover:underline flex items-center gap-1">
-                  <span>Slide &amp; Expand</span>
-                  <span>&rarr;</span>
-                </span>
-              </div>
-            </div>
-
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className={`text-center py-14 px-6 rounded-2xl border ${
+          isDark ? 'border-white/10 bg-white/5 text-slate-400' : 'border-slate-200 bg-slate-50 text-slate-600'
+        }`}>
+          <Camera className="w-10 h-10 mx-auto mb-3 opacity-60 text-blue-500" />
+          <p className="text-base font-semibold text-slate-800 dark:text-slate-200">Belum Ada Foto Galeri Dipublikasikan</p>
+          <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+            Dokumentasi foto kegiatan akademik dan riset dapat diunggah dan dikelola langsung melalui Dashboard ADAScholar.
+          </p>
+        </div>
+      )}
 
       {/* Instagram Live Social Media Connection Banner */}
       <div className={`mt-8 rounded-2xl p-5 sm:p-6 border flex flex-col sm:flex-row items-center justify-between gap-4 transition-all ${
