@@ -158,7 +158,7 @@ export const BeyondAcademia: React.FC<BeyondAcademiaProps> = ({
               isDark ? 'border-white/10' : 'border-slate-200'
             }`}>
               <span className="text-[10px] uppercase font-mono font-bold tracking-wider text-blue-500 block">
-                PhD Parallel:
+                {(pageContent.beyondAcademicParallelLabel || 'Doctoral Mindset Parallel').replace(/:$/, '')}:
               </span>
               <p className={`text-xs leading-relaxed italic font-editorial-serif ${
                 isDark ? 'text-slate-300' : 'text-slate-700'

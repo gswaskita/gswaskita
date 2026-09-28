@@ -623,6 +623,7 @@ const { post } = Astro.props;
     beyondCta: "Explore Holistic Discipline Portal",
     beyondBreadcrumb: "Holistic Discipline & Martial Synergy",
     beyondTaglineRight: "Holistic Discipline • Somatic Conditioning & Research Rigor",
+    beyondAcademicParallelLabel: "Doctoral Mindset Parallel",
 
     footerSubpagesHeading: "Academic Subpages & Repository",
     footerNavAbout: "About • Academic Foundation",

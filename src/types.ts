@@ -362,6 +362,7 @@ export interface PageContentData {
   beyondCta: string;
   beyondBreadcrumb: string;
   beyondTaglineRight: string;
+  beyondAcademicParallelLabel?: string;
 
   // Footer Navigation
   footerSubpagesHeading: string;

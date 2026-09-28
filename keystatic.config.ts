@@ -708,6 +708,11 @@ export default config({
         beyondCta: fields.text({ label: 'Beyond Academia Button Text' }),
         beyondBreadcrumb: fields.text({ label: 'Beyond Academia Breadcrumb Label' }),
         beyondTaglineRight: fields.text({ label: 'Beyond Tagline Right' }),
+        beyondAcademicParallelLabel: fields.text({
+          label: 'Label Paralel Akademik / Doktoral (PhD / Doctoral Mindset Parallel)',
+          description: 'Label judul untuk kutipan sinergi filosofi bela diri dengan riset doktoral pada kartu Beyond Academia (berlaku serentak untuk homepage dan subpage Beyond Academia)',
+          defaultValue: 'Doctoral Mindset Parallel',
+        }),
 
         // Footer Navigation
         footerSubpagesHeading: fields.text({ label: 'Footer Subpages Heading' }),

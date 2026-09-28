@@ -242,6 +242,7 @@ export function App() {
             {/* 7. Section 7: Holistic Discipline (3 disciplines on home) */}
             <BeyondAcademia
               items={data.martialArts}
+              pageContent={data.pageContent}
               theme={theme}
               onNavigate={handleNavigate}
               onOpenSanity={handleOpenSanityGuard}
@@ -317,6 +318,8 @@ export function App() {
         {currentPage === 'beyond' && (
           <BeyondAcademiaPage
             items={data.martialArts}
+            pageContent={data.pageContent}
+            somaticReflections={data.somaticReflections}
             theme={theme}
             onNavigate={handleNavigate}
             onOpenSanity={handleOpenSanityGuard}
