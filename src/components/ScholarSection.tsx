@@ -288,7 +288,7 @@ export const ScholarSection: React.FC<ScholarSectionProps> = ({
 }) => {
   const theme = useTheme(propTheme);
   const [copiedDoi, setCopiedDoi] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'featured' | 'vosviewer'>('featured');
+  const [activeTab, setActiveTab] = useState<'vosviewer' | 'featured'>('vosviewer');
   const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
   const [selectedKeyword, setSelectedKeyword] = useState<string | null>(null);
 
@@ -458,18 +458,6 @@ export const ScholarSection: React.FC<ScholarSectionProps> = ({
         <div className="flex items-center gap-2 flex-wrap">
           <div className="flex items-center p-1 rounded-xl bg-slate-900/60 border border-white/10 text-xs font-semibold">
             <button
-              onClick={() => setActiveTab('featured')}
-              className={`px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
-                activeTab === 'featured'
-                  ? 'bg-[#FF6A00] text-white font-bold shadow'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Garuda Publications</span>
-            </button>
-
-            <button
               onClick={() => setActiveTab('vosviewer')}
               className={`px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'vosviewer'
@@ -479,6 +467,18 @@ export const ScholarSection: React.FC<ScholarSectionProps> = ({
             >
               <Network className="w-3.5 h-3.5" />
               <span>VOSviewer Map</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('featured')}
+              className={`px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
+                activeTab === 'featured'
+                  ? 'bg-[#FF6A00] text-white font-bold shadow'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Garuda Publications</span>
             </button>
           </div>
 
