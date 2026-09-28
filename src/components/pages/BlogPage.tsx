@@ -1147,7 +1147,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 post={currentPost}
                 theme={theme}
                 variant="hero"
-                showToggle={true}
+                showToggle={false}
               />
             </div>
 

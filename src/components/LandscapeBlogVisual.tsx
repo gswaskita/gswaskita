@@ -151,9 +151,9 @@ export const LandscapeBlogVisual: React.FC<LandscapeBlogVisualProps> = ({
             <div className="inline-flex p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-400">
               <Layers className="w-4 h-4 sm:w-6 sm:h-6" />
             </div>
-            <h4 className="text-xs sm:text-sm font-bold tracking-tight">Qualitative Visual Epistemology</h4>
+            <h4 className="text-xs sm:text-sm font-bold tracking-tight">{post.category}</h4>
             <p className="text-[10px] sm:text-xs text-slate-400 leading-relaxed font-mono line-clamp-2">
-              Diagrammatic Mapping &bull; Grounded Visual Coding &bull; Multi-Case Triangulation
+              {post.title}
             </p>
           </div>
         )}
@@ -191,13 +191,6 @@ export const LandscapeBlogVisual: React.FC<LandscapeBlogVisualProps> = ({
             {/* Subtle Gradient Shade for Text Readability and Contrast */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-            {/* Top Right Badges */}
-            <div className="absolute top-3 right-3 flex items-center gap-1.5 z-10">
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/20">
-                Landscape {variant === 'hero' ? 'HD Photo' : '16:9'}
-              </span>
-            </div>
-
             {/* Bottom Left Category & Post Title Overlay for Compact or Hero */}
             {isHero && (
               <div className="absolute bottom-3 left-4 right-4 z-10 flex items-center justify-between text-white/90">
@@ -210,32 +203,6 @@ export const LandscapeBlogVisual: React.FC<LandscapeBlogVisualProps> = ({
           </div>
         ) : (
           renderIllustration()
-        )}
-
-        {/* Mode Toggle Button if image exists and showToggle enabled */}
-        {showToggle && post.coverImage && !imageError && (
-          <div className="absolute bottom-3 right-3 z-20">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setViewMode(prev => prev === 'image' ? 'illustration' : 'image');
-              }}
-              className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold flex items-center gap-1.5 transition-all bg-black/70 hover:bg-black/90 text-white border border-white/25 backdrop-blur-md shadow-lg"
-              title="Toggle Photo / Schematic Illustration"
-            >
-              {viewMode === 'image' ? (
-                <>
-                  <Layers className="w-3 h-3 text-emerald-400" />
-                  <span>Show Schematic</span>
-                </>
-              ) : (
-                <>
-                  <Image className="w-3 h-3 text-blue-400" />
-                  <span>Show Photo</span>
-                </>
-              )}
-            </button>
-          </div>
         )}
       </div>
 
