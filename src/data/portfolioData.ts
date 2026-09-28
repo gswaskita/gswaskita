@@ -43,6 +43,8 @@ export const INITIAL_PORTFOLIO_DATA: PortfolioDataState = {
     chartTitle: "Garuda Annual Publication Trajectory",
     chartSubtitle: "Grafik garis melengkung (curved line chart) publikasi terindeks Garba Rujukan Digital Kemdiktisaintek",
     sintaGarudaUrl: "https://sinta.kemdiktisaintek.go.id/authors/profile/6801795/?view=garuda",
+    repositoryBannerText: "Showing verified Scholar indexing. Total repository contains {count} peer-reviewed articles, conference proceedings, and doctoral working papers.",
+    repositoryButtonText: "Open Research Repository ({count}) →",
     garudaPublicationsCount: 21,
     garudaCitationsCount: 18,
     yearlyPublications: [
@@ -583,6 +585,8 @@ const { post } = Astro.props;
     researchTitle: "Research Articles & Publications",
     researchSubtitle: "Explore peer-reviewed journal papers, empirical studies, and working manuscripts across Operations Management, Service Quality (SERVQUAL), SME Digital Transformation, and Qualitative Visual Methods.",
     researchBreadcrumb: "Peer-Reviewed Papers & DOI Repository",
+    scholarRepositoryBannerText: "Showing verified Scholar indexing. Total repository contains {count} peer-reviewed articles, conference proceedings, and doctoral working papers.",
+    scholarRepoButtonText: "Open Research Repository ({count}) →",
 
     booksBadge: "Academic Publishing • Authored Books & Monographs",
     booksTitle: "Authored Books & Monographs",

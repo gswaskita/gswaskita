@@ -80,6 +80,8 @@ export interface ScholarStats {
   sectionBadge?: string;
   sectionTitle?: string;
   sectionSubtitle?: string;
+  repositoryBannerText?: string;
+  repositoryButtonText?: string;
 
   // Editable Curved Chart Texts
   chartLatestBadge?: string;
@@ -318,6 +320,8 @@ export interface PageContentData {
   researchTitle: string;
   researchSubtitle: string;
   researchBreadcrumb: string;
+  scholarRepositoryBannerText?: string;
+  scholarRepoButtonText?: string;
 
   // Books Section & Page
   booksBadge: string;

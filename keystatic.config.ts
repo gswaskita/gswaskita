@@ -647,6 +647,17 @@ export default config({
         researchTitle: fields.text({ label: 'Research Page Heading' }),
         researchSubtitle: fields.text({ label: 'Research Subtitle', multiline: true }),
         researchBreadcrumb: fields.text({ label: 'Research Breadcrumb Label' }),
+        scholarRepositoryBannerText: fields.text({
+          label: 'Scholar Section: Teks Banner Repositori Bawah (Repository Banner Text)',
+          description: 'Teks keterangan di banner bawah section publikasi Scholar. Gunakan {count} untuk menampilkan jumlah artikel otomatis secara dinamis (contoh: Showing verified Scholar indexing. Total repository contains {count} peer-reviewed articles, conference proceedings, and doctoral working papers.)',
+          multiline: true,
+          defaultValue: 'Showing verified Scholar indexing. Total repository contains {count} peer-reviewed articles, conference proceedings, and doctoral working papers.',
+        }),
+        scholarRepoButtonText: fields.text({
+          label: 'Scholar Section: Teks Tombol Banner Repositori Bawah',
+          description: 'Teks tombol di banner bawah section publikasi Scholar (contoh: Open Research Repository ({count}) →)',
+          defaultValue: 'Open Research Repository ({count}) →',
+        }),
 
         // Books Section & Page
         booksBadge: fields.text({ label: 'Books Badge' }),
@@ -768,6 +779,17 @@ export default config({
         sintaGarudaUrl: fields.text({
           label: 'SINTA Garuda Profile URL',
           description: 'Link profil resmi SINTA Garuda (contoh: https://sinta.kemdiktisaintek.go.id/authors/profile/6801795/?view=garuda)',
+        }),
+        repositoryBannerText: fields.text({
+          label: 'Teks Banner Repositori Bawah (Scholar Repository Banner Text)',
+          description: 'Teks ringkasan repositori di banner bawah section publikasi Scholar di homepage. Gunakan {count} untuk menampilkan jumlah artikel otomatis secara dinamis (contoh: Showing verified Scholar indexing. Total repository contains {count} peer-reviewed articles, conference proceedings, and doctoral working papers.)',
+          multiline: true,
+          defaultValue: 'Showing verified Scholar indexing. Total repository contains {count} peer-reviewed articles, conference proceedings, and doctoral working papers.',
+        }),
+        repositoryButtonText: fields.text({
+          label: 'Teks Tombol Banner Repositori Bawah (Scholar Repository Button Text)',
+          description: 'Teks tombol tautan ke repositori riset di banner bawah section publikasi (contoh: Open Research Repository ({count}) →)',
+          defaultValue: 'Open Research Repository ({count}) →',
         }),
         garudaPublicationsCount: fields.integer({
           label: 'Total Dokumen Publikasi Garuda',

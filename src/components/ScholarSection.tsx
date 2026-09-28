@@ -688,19 +688,41 @@ export const ScholarSection: React.FC<ScholarSectionProps> = ({
       )}
 
       {/* Bottom Navigation Link Banner */}
-      <div className={`mt-8 p-5 rounded-2xl border flex flex-col sm:flex-row items-center justify-between gap-4 ${
-        isDark ? 'bg-white/5 border-white/10 text-slate-300' : 'bg-slate-100 border-slate-200 text-slate-700'
-      }`}>
-        <p className="text-xs">
-          Showing verified Scholar indexing. Total repository contains {articles.length} peer-reviewed articles, conference proceedings, and doctoral working papers.
-        </p>
-        <a
-          href="/research"
-          className="shrink-0 px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow text-center"
-        >
-          Open Research Repository ({articles.length}) &rarr;
-        </a>
-      </div>
+      {(() => {
+        const defaultBannerText = 'Showing verified Scholar indexing. Total repository contains {count} peer-reviewed articles, conference proceedings, and doctoral working papers.';
+        const rawBannerText = scholarStats?.repositoryBannerText || pageContent?.scholarRepositoryBannerText || defaultBannerText;
+        const bannerText = (rawBannerText.includes('{count}') || rawBannerText.includes('{total}') || rawBannerText.includes('{articles.length}'))
+          ? rawBannerText
+              .replace(/\{count\}/g, String(articles.length))
+              .replace(/\{total\}/g, String(articles.length))
+              .replace(/\{articles\.length\}/g, String(articles.length))
+          : rawBannerText;
+
+        const defaultButtonText = `Open Research Repository (${articles.length}) →`;
+        const rawButtonText = scholarStats?.repositoryButtonText || pageContent?.scholarRepoButtonText || defaultButtonText;
+        const buttonText = (rawButtonText.includes('{count}') || rawButtonText.includes('{total}') || rawButtonText.includes('{articles.length}'))
+          ? rawButtonText
+              .replace(/\{count\}/g, String(articles.length))
+              .replace(/\{total\}/g, String(articles.length))
+              .replace(/\{articles\.length\}/g, String(articles.length))
+          : rawButtonText;
+
+        return (
+          <div className={`mt-8 p-5 rounded-2xl border flex flex-col sm:flex-row items-center justify-between gap-4 ${
+            isDark ? 'bg-white/5 border-white/10 text-slate-300' : 'bg-slate-100 border-slate-200 text-slate-700'
+          }`}>
+            <p className="text-xs">
+              {bannerText}
+            </p>
+            <a
+              href="/research"
+              className="shrink-0 px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow text-center"
+            >
+              {buttonText}
+            </a>
+          </div>
+        );
+      })()}
 
     </section>
   );

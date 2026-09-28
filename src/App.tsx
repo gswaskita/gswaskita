@@ -209,6 +209,7 @@ export function App() {
             <ScholarSection
               articles={data.articles || data.researchArticles}
               scholarStats={data.scholarStats}
+              pageContent={data.pageContent}
               theme={theme}
               onNavigate={handleNavigate}
               onOpenSanity={handleOpenSanityGuard}
