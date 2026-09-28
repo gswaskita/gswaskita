@@ -7,7 +7,7 @@
   "chartTitle": "Garuda Annual Publication Trajectory",
   "chartSubtitle": "Curved line chart of publications indexed in Garba Rujukan Digital (Kemdiktisaintek)",
   "sintaGarudaUrl": "https://sinta.kemdiktisaintek.go.id/authors/profile/6801795/?view=garuda",
-  "repositoryBannerText": "Showing verified Scholar indexing. Total repository contains {count} peer-reviewed articles, conference proceedings, and doctoral working papers.",
+  "repositoryBannerText": "Showing verified Scholar indexing. Total repository contains {count} peer-reviewed articles and conference proceedings",
   "repositoryButtonText": "Open Research Repository ({count}) →",
   "garudaPublicationsCount": 21,
   "garudaCitationsCount": 18,
