@@ -11,7 +11,7 @@
   "repositoryButtonText": "Open Research Repository ({count}) →",
   "garudaPublicationsCount": 21,
   "garudaCitationsCount": 18,
-  "totalCitations": 304,
+  "totalCitations": 306,
   "hIndex": 11,
   "i10Index": 12,
   "yearlyCitations": [
@@ -38,7 +38,7 @@
     },
     {
       "year": 2026,
-      "count": 117,
+      "count": 119,
       "growthPercent": -20,
       "cumulative": 273,
       "milestone": "Ongoing annual citation trajectory"
